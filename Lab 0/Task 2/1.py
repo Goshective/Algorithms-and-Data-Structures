@@ -21,13 +21,13 @@ def main():
 
 
 with open('input.txt', 'w') as f:
-    f.write('10')
+    f.write('0')
 main()
 with open('output.txt', 'r') as f:
-        print("TEST 1. VERDICT:", "OK" if f.readline().strip() == '55' else "WRONG")
+    print("TEST 1. VERDICT:", "OK" if f.readline().strip() == '0' else "WRONG")
 
 with open('input.txt', 'w') as f:
-    f.write('3')
+    f.write('45')
 main()
 with open('output.txt', 'r') as f:
-        print("TEST 2. VERDICT:", "OK" if f.readline().strip() == '2' else "WRONG")
+    print("TEST 2. VERDICT:", "OK" if f.readline().strip() == '1134903170' else "WRONG")
