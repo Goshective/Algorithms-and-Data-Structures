@@ -37,7 +37,6 @@ def merge_sort(lst, l, r):
         merge(lst, l, m, r)
 
 def main():
-    # path = 'C:/dev/ITMO Education/AnDS/Algorithms-and-Data-Structures/Lab2/Tasks_1_4_6/src/'
     with open('input.txt', 'r') as inp, open('output.txt', 'w') as out:
         n = int(inp.readline())
         lst = [int(x) for x in inp.readline().split()]
