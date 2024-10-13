@@ -40,8 +40,7 @@ def solution(n, lst):
 
 
 def main():
-    path = 'C:/Dev/New Programming/ITMO Education/Algorithms and Data Structures/Lab2/Tasks_1_4_6/src/'
-    with open(path + 'input2.txt', 'r') as inp, open(path + 'output.txt', 'w') as out:
+    with open('input6.txt', 'r') as inp, open('output.txt', 'w') as out:
         lst = [float(x) for x in inp.readline().split()]
         ans = solution(len(lst), lst)
         print(*ans, file=out)
