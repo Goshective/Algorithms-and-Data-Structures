@@ -13,7 +13,7 @@ def find_max_crossing_subarray(lst, low, mid, high):
         if s > right_sum:
             right_sum = s
             maxright = j
-    return maxleft, maxright, left_sum - right_sum
+    return maxleft, maxright, left_sum + right_sum
 
 def find_max_subarray(lst, low, high):
     if high == low:
@@ -29,12 +29,23 @@ def find_max_subarray(lst, low, high):
         return right_low, right_high, right_sum
     return cross_low, cross_high, cross_sum
 
+def diff_array(n, lst):
+    return [lst[i] - lst[i-1] for i in range(1, n)]
+
+
+def solution(n, lst):
+    diff_lst = diff_array(n, lst)
+    low, high, profit = find_max_subarray(diff_lst, 0, (n - 1)-1)
+    return low, high + 1, round(profit, 3)
+
 
 def main():
-    with open('input2.txt', 'r') as inp, open('output.txt', 'w') as out:
+    path = 'C:/Dev/New Programming/ITMO Education/Algorithms and Data Structures/Lab2/Tasks_1_4_6/src/'
+    with open(path + 'input2.txt', 'r') as inp, open(path + 'output.txt', 'w') as out:
         lst = [float(x) for x in inp.readline().split()]
-        ans = find_max_subarray(lst, 0, len(lst)-1)
-        print(*ans, file=out, end='')
+        ans = solution(len(lst), lst)
+        print(*ans, file=out)
+        print(f'Buy: for {lst[ans[0]]} at {ans[0]}, Sell: for {lst[ans[1]]} at {ans[1]}. Profit: {ans[2]}', file=out, end='')
 
 if __name__ == "__main__":
     main()
