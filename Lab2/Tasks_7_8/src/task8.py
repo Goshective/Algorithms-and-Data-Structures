@@ -46,7 +46,7 @@ def multiply_polynoms(n, A, B):
     return R
 
 def main():
-    with open('input.txt', 'r') as inp, open('output.txt', 'w') as out:
+    with open('input.txt8', 'r') as inp, open('output.txt', 'w') as out:
         n = int(inp.readline())
         a = [int(x) for x in inp.readline().split()]
         b = [int(x) for x in inp.readline().split()]
