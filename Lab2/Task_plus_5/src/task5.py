@@ -1,4 +1,3 @@
-import os
 def is_more_than_half(lst, low, high):
     if high == low:
         return True, lst[low]
@@ -25,8 +24,7 @@ def solution(n, lst):
     return int(is_more_than_half(lst, 0, n-1)[0])
 
 def main():
-    path = os.path.dirname(os.path.abspath(__file__)) + '/'
-    with open(path+'input.txt', 'r') as inp, open(path+'output.txt', 'w') as out:
+    with open('input.txt', 'r') as inp, open('output.txt', 'w') as out:
         n = int(inp.readline())
         lst = [int(x) for x in inp.readline().split()]
         res = solution(n, lst)
