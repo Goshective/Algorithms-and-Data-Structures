@@ -16,8 +16,8 @@
 - `Task_main_2/`
 - `Task_main_4/`
 - `Task_plus_5/`
+- `Task_plus_6/`
 - `Task_plus_8/`
-- `Task_plus_9/`
 
 ## Запуск проекта
 1. Клонируйте репозиторий:
