@@ -11,12 +11,19 @@ def insertion_sort(n, lst):
         lst[j+1] = key_elem
     return
 
-def main():
-    with open('input.txt', 'r') as inp, open('output.txt', 'w') as out:
-        n = int(inp.readline())
-        lst = [int(x) for x in inp.readline().split()]
-        insertion_sort(n, lst)
-        print(*lst, file=out, end='')
+def main(cur_dir):
+    n, lst = read_len_lst_file(os.path.join(cur_dir, 'input.txt'), int)
+    insertion_sort(n, lst)
+    write_lst_file(os.path.join(cur_dir, 'output.txt'), lst)
+
 
 if __name__ == "__main__":
-    main()
+    import os
+    import sys
+    
+    cur_dir = os.path.dirname(os.path.abspath(__file__))
+    common_dir = os.path.join(cur_dir, '..', '..', '..')
+    sys.path.insert(0, common_dir)
+
+    from utils import read_len_lst_file, write_lst_file
+    main(cur_dir)

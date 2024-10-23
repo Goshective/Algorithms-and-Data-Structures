@@ -14,13 +14,21 @@ def bin_sum(a, b):
         ret.append(1)
     return ret[::-1]
 
-
-def main():
-    with open('input.txt', 'r') as inp, open('output.txt', 'w') as out:
-        a, b = [[int(x) for x in st] for st in inp.readline().rstrip().split()]
-        res = bin_sum(a, b)
-        print(*res, file=out, sep='', end='')
+def main(cur_dir):
+    a, b = read_file(os.path.join(cur_dir, 'input.txt'), 
+                       lambda line: [[int(x) for x in st] for st in line.split()]
+                       )[0]
+    res = bin_sum(a, b)
+    write_file(os.path.join(cur_dir, 'output.txt'), "".join(map(str, res)))
 
 
 if __name__ == "__main__":
-    main()
+    import os
+    import sys
+
+    cur_dir = os.path.dirname(os.path.abspath(__file__))
+    common_dir = os.path.join(cur_dir, '..', '..', '..')
+    sys.path.insert(0, common_dir)
+
+    from utils import read_file, write_file
+    main(cur_dir)

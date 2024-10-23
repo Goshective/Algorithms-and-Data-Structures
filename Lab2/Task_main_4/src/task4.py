@@ -18,14 +18,23 @@ def bin_search_loop(n, lst, values):
         res.append(bin_search(n, lst, v))
     return res
 
-def main():
-    with open('input.txt', 'r') as inp, open('output.txt', 'w') as out:
-        n = int(inp.readline())
-        lst = [int(x) for x in inp.readline().split()]
-        _ = int(inp.readline())
-        values = [int(x) for x in inp.readline().split()]
-        ans = bin_search_loop(n, lst, values)
-        print(*ans, file=out, end='')
+def main(cur_dir):
+    n, lst, _, values = read_file(os.path.join(cur_dir, 'input.txt'), 
+                       int, 
+                       lambda x: [int(i) for i in x.split()],
+                       int, 
+                       lambda x: [int(i) for i in x.split()]
+                       )
+    write_lst_file(os.path.join(cur_dir, 'output.txt'), bin_search_loop(n, lst, values))
+
 
 if __name__ == "__main__":
-    main()
+    import os
+    import sys
+    
+    cur_dir = os.path.dirname(os.path.abspath(__file__))
+    common_dir = os.path.join(cur_dir, '..', '..', '..')
+    sys.path.insert(0, common_dir)
+
+    from utils import read_file, write_lst_file
+    main(cur_dir)

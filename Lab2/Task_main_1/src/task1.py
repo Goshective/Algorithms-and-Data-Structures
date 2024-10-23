@@ -36,12 +36,19 @@ def merge_sort(lst, l, r):
         merge_sort(lst, m + 1, r)
         merge(lst, l, m, r)
 
-def main():
-    with open('input.txt', 'r') as inp, open('output.txt', 'w') as out:
-        n = int(inp.readline())
-        lst = [int(x) for x in inp.readline().split()]
-        merge_sort(lst, 0, n - 1)
-        print(*lst, file=out, end='')
+def main(cur_dir):
+    n, lst = read_len_lst_file(os.path.join(cur_dir, 'input.txt'), int)
+    merge_sort(lst, 0, n - 1)
+    write_lst_file(os.path.join(cur_dir, 'output.txt'), lst)
+
 
 if __name__ == "__main__":
-    main()
+    import os
+    import sys
+    
+    cur_dir = os.path.dirname(os.path.abspath(__file__))
+    common_dir = os.path.join(cur_dir, '..', '..', '..')
+    sys.path.insert(0, common_dir)
+
+    from utils import read_len_lst_file, write_lst_file
+    main(cur_dir)

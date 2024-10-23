@@ -38,13 +38,23 @@ def solution(n, lst):
     low, high, profit = find_max_subarray(diff_lst, 0, (n - 1)-1)
     return low, high + 1, round(profit, 3)
 
+def main(cur_dir):
+    lst = read_file(os.path.join(cur_dir, 'input.txt'), 
+                       lambda x: [float(i) for i in x.split()]
+                       )[0]
+    res = solution(len(lst), lst)
+    ans = " ".join(map(str, res)) + '\n' + \
+    f'Buy: for {lst[res[0]]} at {res[0]}, Sell: for {lst[res[1]]} at {res[1]}. Profit: {res[2]}'
+    write_file(os.path.join(cur_dir, 'output.txt'), ans)
 
-def main():
-    with open('input.txt', 'r') as inp, open('output.txt', 'w') as out:
-        lst = [float(x) for x in inp.readline().split()]
-        ans = solution(len(lst), lst)
-        print(*ans, file=out)
-        print(f'Buy: for {lst[ans[0]]} at {ans[0]}, Sell: for {lst[ans[1]]} at {ans[1]}. Profit: {ans[2]}', file=out, end='')
 
 if __name__ == "__main__":
-    main()
+    import os
+    import sys
+    
+    cur_dir = os.path.dirname(os.path.abspath(__file__))
+    common_dir = os.path.join(cur_dir, '..', '..', '..')
+    sys.path.insert(0, common_dir)
+
+    from utils import read_file, write_file
+    main(cur_dir)

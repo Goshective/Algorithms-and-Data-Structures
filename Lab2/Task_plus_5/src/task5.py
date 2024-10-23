@@ -24,14 +24,18 @@ def is_more_than_half(lst, low, high):
 def solution(n, lst):
     return int(is_more_than_half(lst, 0, n-1)[0])
 
-def main():
-    path = os.path.dirname(os.path.abspath(__file__)) + '/'
-    with open(path+'input.txt', 'r') as inp, open(path+'output.txt', 'w') as out:
-        n = int(inp.readline())
-        lst = [int(x) for x in inp.readline().split()]
-        res = solution(n, lst)
-        print(res, file=out, end='')
-    return
+def main(cur_dir):
+    n, lst = read_len_lst_file(os.path.join(cur_dir, 'input.txt'), int)
+    write_lst_file(os.path.join(cur_dir, 'output.txt'), solution(n, lst))
+
 
 if __name__ == "__main__":
-    main()
+    import os
+    import sys
+    
+    cur_dir = os.path.dirname(os.path.abspath(__file__))
+    common_dir = os.path.join(cur_dir, '..', '..', '..')
+    sys.path.insert(0, common_dir)
+
+    from utils import read_len_lst_file, write_lst_file
+    main(cur_dir)

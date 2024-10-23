@@ -33,16 +33,25 @@ def multiply_polynoms(n, A, B):
     R = sum_polynoms(VW, UZ)
     return R
 
-def main():
-    with open('input.txt', 'r') as inp, open('output.txt', 'w') as out:
-        n = int(inp.readline())
-        a = [int(x) for x in inp.readline().split()]
-        b = [int(x) for x in inp.readline().split()]
-        res = multiply_polynoms(n, a[::-1], b[::-1])
-        if res[-1] == 0:
-            res.pop()
-        print(*res[::-1], file=out, end='')
-    return
+def main(cur_dir):
+    n, a, b = read_file(os.path.join(cur_dir, 'input.txt'), 
+                       int,
+                       lambda x: [int(i) for i in x.split()],
+                       lambda x: [int(i) for i in x.split()]
+                       )
+    res = multiply_polynoms(n, a[::-1], b[::-1])
+    if res[-1] == 0:
+        res.pop()
+    write_lst_file(os.path.join(cur_dir, 'output.txt'), res[::-1])
+
 
 if __name__ == "__main__":
-    main()
+    import os
+    import sys
+    
+    cur_dir = os.path.dirname(os.path.abspath(__file__))
+    common_dir = os.path.join(cur_dir, '..', '..', '..')
+    sys.path.insert(0, common_dir)
+
+    from utils import read_file, write_lst_file
+    main(cur_dir)

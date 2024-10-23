@@ -1,3 +1,6 @@
+import os
+import sys
+
 def insertion_sort(n, inp_lst):
     lst = [(i, x) for i, x in enumerate(inp_lst)]
     if n <= 1: return lst
@@ -15,12 +18,18 @@ def find_info(n, lst):
     maxi, mini, mid = s_lst[-1][0], s_lst[0][0], s_lst[n//2][0]
     return mini+1, mid+1, maxi+1
 
-def main():
-    with open('input.txt', 'r') as inp, open('output.txt', 'w') as out:
-        n = int(inp.readline())
-        inp_lst = [float(x) for x in inp.readline().split()]
-        print(*find_info(n, inp_lst), file=out, end='')
+def main(cur_dir):
+    n, lst = read_len_lst_file(os.path.join(cur_dir, 'input.txt'), int)
+    write_lst_file(os.path.join(cur_dir, 'output.txt'), find_info(n, lst))
 
 
 if __name__ == "__main__":
-    main()
+    import os
+    import sys
+    
+    cur_dir = os.path.dirname(os.path.abspath(__file__))
+    common_dir = os.path.join(cur_dir, '..', '..', '..')
+    sys.path.insert(0, common_dir)
+
+    from utils import read_len_lst_file, write_lst_file
+    main(cur_dir)

@@ -29,13 +29,18 @@ def solution(n, lst):
     low, high, profit = find_max_subarray(n - 1, diff_lst)
     return low, high + 1, round(profit, 3)
 
-def main():
-    with open('input.txt', 'r') as inp, open('output.txt', 'w') as out:
-        n = int(inp.readline())
-        lst = [int(x) for x in inp.readline().split()]
-        res = solution(n, lst)
-        print(*res, file=out, end='')
-    return
+def main(cur_dir):
+    n, lst = read_len_lst_file(os.path.join(cur_dir, 'input.txt'), int)
+    write_lst_file(os.path.join(cur_dir, 'output.txt'), solution(n, lst))
+
 
 if __name__ == "__main__":
-    main()
+    import os
+    import sys
+    
+    cur_dir = os.path.dirname(os.path.abspath(__file__))
+    common_dir = os.path.join(cur_dir, '..', '..', '..')
+    sys.path.insert(0, common_dir)
+
+    from utils import read_len_lst_file, write_lst_file
+    main(cur_dir)
