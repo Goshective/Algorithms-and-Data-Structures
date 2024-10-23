@@ -1,4 +1,3 @@
-import os
 def is_more_than_half(lst, low, high):
     if high == low:
         return True, lst[low]

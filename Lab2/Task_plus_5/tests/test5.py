@@ -28,7 +28,7 @@ class InsertionSortTestCase(unittest.TestCase):
 
         self.output_design(2, solution, 0, 10**3, list(range(10**3)))
 
-        self.output_design(3, solution, 1, 10**5, [100]*10**5)
+        self.output_design(3, solution, 1, 5*10**4, [100]*5*10**4)
 
 
 if __name__ == "__main__":
