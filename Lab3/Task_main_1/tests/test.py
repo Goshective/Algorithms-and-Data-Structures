@@ -13,7 +13,7 @@ class RandomizedQuickSortTestCase(unittest.TestCase):
 
         print(f"Тест {test_name}:")
         print("Время работы: %s секунд " % (time.perf_counter() - t_start), end='\n')
-        print("Затрачено памяти:", tracemalloc.get_traced_memory()[1], "байт")
+        print("Затрачено памяти:", round(tracemalloc.get_traced_memory()[1]/(1024*1024), 3), "Мегабайт")
         tracemalloc.stop()
 
     def test_correctness(self):
