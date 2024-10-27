@@ -4,7 +4,7 @@ import os
 import time
 import tracemalloc
 
-class RandomizedQuickSortTestCase(unittest.TestCase):
+class SegmentsTestCase(unittest.TestCase):
     def output_design(self, test_name, func, *args):
         t_start = time.perf_counter()
         tracemalloc.start()
