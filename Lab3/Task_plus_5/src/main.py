@@ -1,5 +1,15 @@
+def radix_sort(lst):
+    freq = [0]*5001
+    for i in lst:
+        freq[i] += 1
+    ans = []
+    for n in range(5000, -1, -1):
+        if n != 0:
+            ans += [n]*freq[n]
+    return ans
+
 def solution(citations):
-    citations.sort(reverse=True) # quick-sort
+    citations = radix_sort(citations)
     c = 0
     for i in range(len(citations)):
         if citations[i] < c + 1:
