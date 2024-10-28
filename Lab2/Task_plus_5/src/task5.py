@@ -1,3 +1,12 @@
+import os
+import sys
+
+PATH = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
+
+from Lab2.utils import read_len_lst_file, write_file
+
+
 def is_more_than_half(lst, low, high):
     if high == low:
         return True, lst[low]
@@ -23,18 +32,10 @@ def is_more_than_half(lst, low, high):
 def solution(n, lst):
     return int(is_more_than_half(lst, 0, n-1)[0])
 
-def main(cur_dir):
-    n, lst = read_len_lst_file(os.path.join(cur_dir, 'input.txt'), int)
-    write_lst_file(os.path.join(cur_dir, 'output.txt'), solution(n, lst))
+def main():
+    n, lst = read_len_lst_file(os.path.join(PATH, 'input.txt'), int)
+    write_file(os.path.join(PATH, 'output.txt'), solution(n, lst))
 
 
 if __name__ == "__main__":
-    import os
-    import sys
-    
-    cur_dir = os.path.dirname(os.path.abspath(__file__))
-    common_dir = os.path.join(cur_dir, '..', '..', '..')
-    sys.path.insert(0, common_dir)
-
-    from utils import read_len_lst_file, write_lst_file
-    main(cur_dir)
+    main()

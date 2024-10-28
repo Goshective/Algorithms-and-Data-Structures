@@ -1,3 +1,12 @@
+import os
+import sys
+
+PATH = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
+
+from Lab1.utils import read_file, write_lst_file
+
+
 def bin_sum(a, b):
     ret = []
     carry = 0
@@ -14,21 +23,13 @@ def bin_sum(a, b):
         ret.append(1)
     return ret[::-1]
 
-def main(cur_dir):
-    a, b = read_file(os.path.join(cur_dir, 'input.txt'), 
+def main():
+    a, b = read_file(os.path.join(PATH, 'input.txt'), 
                        lambda line: [[int(x) for x in st] for st in line.split()]
                        )[0]
     res = bin_sum(a, b)
-    write_file(os.path.join(cur_dir, 'output.txt'), "".join(map(str, res)))
+    write_lst_file(os.path.join(PATH, 'output.txt'), res, sep='')
 
 
 if __name__ == "__main__":
-    import os
-    import sys
-
-    cur_dir = os.path.dirname(os.path.abspath(__file__))
-    common_dir = os.path.join(cur_dir, '..', '..', '..')
-    sys.path.insert(0, common_dir)
-
-    from utils import read_file, write_file
-    main(cur_dir)
+    main()

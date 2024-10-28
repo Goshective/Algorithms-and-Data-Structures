@@ -1,3 +1,12 @@
+import os
+import sys
+
+PATH = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
+
+from Lab2.utils import read_lst_file, write_lst_line_file
+
+
 def find_max_crossing_subarray(lst, low, mid, high):
     left_sum = lst[mid]-1
     s = 0
@@ -38,23 +47,13 @@ def solution(n, lst):
     low, high, profit = find_max_subarray(diff_lst, 0, (n - 1)-1)
     return low, high + 1, round(profit, 3)
 
-def main(cur_dir):
-    lst = read_file(os.path.join(cur_dir, 'input.txt'), 
-                       lambda x: [float(i) for i in x.split()]
-                       )[0]
+def main():
+    lst = read_lst_file(os.path.join(PATH, 'input.txt'), float)
     res = solution(len(lst), lst)
-    ans = " ".join(map(str, res)) + '\n' + \
-    f'Buy: for {lst[res[0]]} at {res[0]}, Sell: for {lst[res[1]]} at {res[1]}. Profit: {res[2]}'
-    write_file(os.path.join(cur_dir, 'output.txt'), ans)
+    
+    line = f'Buy: for {lst[res[0]]} at {res[0]}, Sell: for {lst[res[1]]} at {res[1]}. Profit: {res[2]}'
+    write_lst_line_file(os.path.join(PATH, 'output.txt'), res, line)
 
 
 if __name__ == "__main__":
-    import os
-    import sys
-    
-    cur_dir = os.path.dirname(os.path.abspath(__file__))
-    common_dir = os.path.join(cur_dir, '..', '..', '..')
-    sys.path.insert(0, common_dir)
-
-    from utils import read_file, write_file
-    main(cur_dir)
+    main()

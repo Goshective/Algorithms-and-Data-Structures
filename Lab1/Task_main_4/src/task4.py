@@ -1,6 +1,11 @@
 import os
 import sys
 
+PATH = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
+
+from Lab1.utils import read_lst_value_file, write_line_lst_line_file, write_file
+
 def linear_search(lst, v):
     return [i for i, a in enumerate(lst) if a == v]
 
@@ -16,23 +21,15 @@ def main():
         else:
             print(-1, file=out, end='')
 
-def main(cur_dir):
-    lst, v = read_file(os.path.join(cur_dir, 'input.txt'), 
-                       lambda x: [int(i) for i in x.split()], 
-                       int
-                       )
+def main():
+    lst, v = read_lst_value_file(os.path.join(PATH, 'input.txt'), int)
     res = linear_search(lst, v)
-    ans = f'{len(res)}\n{", ".join(map(str, res))}' if res else -1
-    write_file(os.path.join(cur_dir, 'output.txt'), ans)
+    out_path = os.path.join(PATH, 'output.txt')
+    if res:
+        write_line_lst_line_file(out_path, len(res), res, sep=', ')
+    else:
+        write_file(out_path, -1)
 
 
 if __name__ == "__main__":
-    import os
-    import sys
-    
-    cur_dir = os.path.dirname(os.path.abspath(__file__))
-    common_dir = os.path.join(cur_dir, '..', '..', '..')
-    sys.path.insert(0, common_dir)
-
-    from utils import read_file, write_file
-    main(cur_dir)
+    main()

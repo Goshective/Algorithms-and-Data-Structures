@@ -1,3 +1,12 @@
+import os
+import sys
+
+PATH = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
+
+from Lab2.utils import read_len_lst_file, write_lst_file
+
+
 def find_max_subarray(n, lst):
     prefix_sum = []
     s = 0
@@ -29,18 +38,10 @@ def solution(n, lst):
     low, high, profit = find_max_subarray(n - 1, diff_lst)
     return low, high + 1, round(profit, 3)
 
-def main(cur_dir):
-    n, lst = read_len_lst_file(os.path.join(cur_dir, 'input.txt'), int)
-    write_lst_file(os.path.join(cur_dir, 'output.txt'), solution(n, lst))
+def main():
+    n, lst = read_len_lst_file(os.path.join(PATH, 'input.txt'), int)
+    write_lst_file(os.path.join(PATH, 'output.txt'), solution(n, lst))
 
 
 if __name__ == "__main__":
-    import os
-    import sys
-    
-    cur_dir = os.path.dirname(os.path.abspath(__file__))
-    common_dir = os.path.join(cur_dir, '..', '..', '..')
-    sys.path.insert(0, common_dir)
-
-    from utils import read_len_lst_file, write_lst_file
-    main(cur_dir)
+    main()

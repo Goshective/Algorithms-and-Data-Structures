@@ -1,3 +1,12 @@
+import os
+import sys
+
+PATH = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
+
+from Lab2.utils import read_len_lst_file, write_lst_file
+
+
 def merge(lst, l, m, r):
     n1 = m - l + 1
     n2 = r - m
@@ -36,19 +45,11 @@ def merge_sort(lst, l, r):
         merge_sort(lst, m + 1, r)
         merge(lst, l, m, r)
 
-def main(cur_dir):
-    n, lst = read_len_lst_file(os.path.join(cur_dir, 'input.txt'), int)
+def main():
+    n, lst = read_len_lst_file(os.path.join(PATH, 'input.txt'), int)
     merge_sort(lst, 0, n - 1)
-    write_lst_file(os.path.join(cur_dir, 'output.txt'), lst)
+    write_lst_file(os.path.join(PATH, 'output.txt'), lst)
 
 
 if __name__ == "__main__":
-    import os
-    import sys
-    
-    cur_dir = os.path.dirname(os.path.abspath(__file__))
-    common_dir = os.path.join(cur_dir, '..', '..', '..')
-    sys.path.insert(0, common_dir)
-
-    from utils import read_len_lst_file, write_lst_file
-    main(cur_dir)
+    main()

@@ -1,4 +1,5 @@
 __pycache__/*
+Lab1/__pycache__/*
 Lab1/Task_main_1/src/__pycache__/*
 Lab1/Task_main_4/src/__pycache__/*
 Lab1/Task_main_7/src/__pycache__/*
@@ -6,6 +7,7 @@ Lab1/Task_plus_3/src/__pycache__/*
 Lab1/Task_plus_6/src/__pycache__/*
 Lab1/Task_plus_9/src/__pycache__/*
 
+Lab2/__pycache__/*
 Lab2/Task_main_1/src/__pycache__/*
 Lab2/Task_main_4/src/__pycache__/*
 Lab2/Task_main_6/src/__pycache__/*
@@ -13,6 +15,7 @@ Lab2/Task_plus_5/src/__pycache__/*
 Lab2/Task_plus_7/src/__pycache__/*
 Lab2/Task_plus_8/src/__pycache__/*
 
+Lab3/__pycache__/*
 Lab3/Task_main_1/src/__pycache__/*
 Lab3/Task_main_2/src/__pycache__/*
 Lab3/Task_main_4/src/__pycache__/*

@@ -1,3 +1,12 @@
+import os
+import sys
+
+PATH = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
+
+from Lab3.utils import read_file, write_lst_file
+
+
 def solution(n): # reverse qsort
     if n <= 1:
         return list(range(1, n+1))
@@ -16,20 +25,12 @@ def solution(n): # reverse qsort
         ans[idx] = n+1
     return ans
 
-def main(cur_dir):
-    n = read_file(os.path.join(cur_dir, 'input.txt'), int)[0]
-    write_lst_file(os.path.join(cur_dir, 'output.txt'), solution(n))
+def main():
+    n = read_file(os.path.join(PATH, 'input.txt'), int)[0]
+    write_lst_file(os.path.join(PATH, 'output.txt'), solution(n))
 
 
 if __name__ == "__main__":
-    import os
-    import sys
-    
-    cur_dir = os.path.dirname(os.path.abspath(__file__))
-    sys.path.insert(0, os.path.join(cur_dir, '..', '..', '..'))
-
-    from utils import read_file, write_lst_file
-
-    main(cur_dir)
+    main()
 
 

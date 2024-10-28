@@ -1,3 +1,12 @@
+import os
+import sys
+
+PATH = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
+
+from Lab3.utils import read_lst_file, write_file
+
+
 def radix_sort(lst):
     freq = [0]*5001
     for i in lst:
@@ -17,18 +26,10 @@ def solution(citations):
         c += 1
     return c
 
-def main(cur_dir):
-    lst = read_file(os.path.join(cur_dir, 'input.txt'), lambda x: [int(i) for i in x.split(',')])[0]
-    write_file(os.path.join(cur_dir, 'output.txt'), solution(lst))
+def main():
+    lst = read_lst_file(os.path.join(PATH, 'input.txt'), int, sep=',')
+    write_file(os.path.join(PATH, 'output.txt'), solution(lst))
 
 
 if __name__ == "__main__":
-    import os
-    import sys
-    
-    cur_dir = os.path.dirname(os.path.abspath(__file__))
-    sys.path.insert(0, os.path.join(cur_dir, '..', '..', '..'))
-
-    from utils import read_file, write_file
-
-    main(cur_dir)
+    main()

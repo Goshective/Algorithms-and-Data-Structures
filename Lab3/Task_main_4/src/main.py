@@ -1,18 +1,12 @@
 from bisect import bisect_left
+import os
+import sys
 
-def main(cur_dir):
+PATH = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
 
-    with open(os.path.join(cur_dir, 'input.txt'), 'r') as inp:
-        s, p = map(int, inp.readline().split())
-        segments = []
-        for _ in range(s):
-            l, r = map(int, inp.readline().split())
-            segments.append((l, r))
-        points = [int(x) for x in inp.readline().split()]
-    ans = solution(s, p, segments, points)
+from Lab3.utils import read_multi_lst_file, write_lst_file
 
-    with open(os.path.join(cur_dir, 'output.txt'), 'w') as out:
-        print(*ans, file=out, end='')
 
 def segments_parser(lst):
     segments = []
@@ -47,8 +41,11 @@ def solution(s, p, lst, points):
 
     return ans
 
+def main():
+    (s, p), segments, points = read_multi_lst_file(os.path.join(PATH, 'input.txt'), True)
+    ans = solution(s, p, segments, points)
+    write_lst_file(os.path.join(PATH, 'output.txt'), ans)
+
 
 if __name__ == "__main__":
-    import os
-    cur_dir = os.path.dirname(os.path.abspath(__file__))
-    main(cur_dir)
+    main()

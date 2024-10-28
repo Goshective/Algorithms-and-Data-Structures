@@ -1,22 +1,22 @@
-def solution(n, k, points):
+import os
+import sys
+
+PATH = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
+
+from Lab3.utils import read_multi_lst_file, write_lst_file
+
+
+def solution(_, k, points):
     points.sort(key=lambda x: x[0]**2 + x[1]**2)
     return points[:k]
 
-def main(cur_dir):
-    with open(os.path.join(cur_dir, 'input.txt'), 'r') as inp:
-        n, k = map(int, inp.readline().split())
-        points = []
-        for _ in range(n):
-            points.append([int(x) for x in inp.readline().split()])
+def main():
+    (n, k), points = read_multi_lst_file(os.path.join(PATH, 'input.txt'))
     ans = solution(n, k, points)
-    print(points, ans)
 
-    with open(os.path.join(cur_dir, 'output.txt'), 'w') as out:
-        print(*ans, file=out, sep=',', end='')
+    write_lst_file(os.path.join(PATH, 'output.txt'), ans, sep=',')
 
 
 if __name__ == "__main__":
-    import os
-    
-    cur_dir = os.path.dirname(os.path.abspath(__file__))
-    main(cur_dir)
+    main()

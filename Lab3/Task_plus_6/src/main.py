@@ -1,4 +1,11 @@
 import heapq
+import os
+import sys
+
+PATH = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
+
+from Lab3.utils import read_file, write_file
 
 
 def cross_multiplication(a, b):
@@ -49,23 +56,15 @@ def solution(n, m, a, b, sort_func):
     res_arr = heap_algo(n, m, a, b)
     return sum(res_arr[i] for i in range(0, n*m, 10))
 
-def main(cur_dir):
-    (n, m), a, b = read_file(os.path.join(cur_dir, 'input.txt'), 
+def main():
+    (n, m), a, b = read_file(os.path.join(PATH, 'input.txt'), 
                            lambda x: map(int, x.split()),
                            lambda x: [int(i) for i in x.split()],
                            lambda x: [int(i) for i in x.split()]
                            )
     res = solution(n, m, a, b, radix_sort)
-    write_file(os.path.join(cur_dir, 'output.txt'), res)
+    write_file(os.path.join(PATH, 'output.txt'), res)
 
 
 if __name__ == "__main__":
-    import os
-    import sys
-
-    cur_dir = os.path.dirname(os.path.abspath(__file__))
-    common_dir = os.path.join(cur_dir, '..', '..', '..')
-    sys.path.insert(0, common_dir)
-
-    from utils import read_file, write_file
-    main(cur_dir)
+    main()

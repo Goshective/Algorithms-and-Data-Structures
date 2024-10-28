@@ -1,21 +1,16 @@
 import unittest
 import sys
 import os
-import time
-import tracemalloc
 from random import shuffle
 
+PATH = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
+
+from Lab3.Task_main_1.src.main import RandomizedQuickSort as sort_func
+from test_utils import output_design
+
+
 class RandomizedQuickSortTestCase(unittest.TestCase):
-    def output_design(self, test_name, func, ln, lst):
-        t_start = time.perf_counter()
-        tracemalloc.start()
-        func(lst, 0, ln - 1)
-
-        print(f"Тест {test_name}:")
-        print("Время работы: %s секунд " % (time.perf_counter() - t_start), end='\n')
-        print("Затрачено памяти:", round(tracemalloc.get_traced_memory()[1]/(1024*1024), 3), "Мегабайт")
-        tracemalloc.stop()
-
     def test_correctness(self):
         inp = [31, 41, 59, 26, 41, 58]
         sort_func(inp, 0, len(inp) - 1)
@@ -27,28 +22,23 @@ class RandomizedQuickSortTestCase(unittest.TestCase):
     
     def test_time_memory(self):
         minimum_inp = list(range(100))
-        self.output_design('100 элементов', sort_func, 100, minimum_inp)
+        output_design('100 элементов', sort_func, minimum_inp, 0, 99)
 
         medium_inp = list(range(1000))
         shuffle(medium_inp)
-        self.output_design('1000 элементов', sort_func, 1000, medium_inp)
+        output_design('1000 элементов', sort_func, medium_inp, 0, 999)
 
         medium_inp = list(range(10**4))
         shuffle(medium_inp)
-        self.output_design('10e4 элементов', sort_func, 10**4, medium_inp)
+        output_design('10e4 элементов', sort_func, medium_inp, 0, 9999)
 
         medium_inp = list(range(10**5))
         shuffle(medium_inp)
-        self.output_design('10e5 элементов', sort_func, 10**5, medium_inp)
+        output_design('10e5 элементов', sort_func, medium_inp, 0, 99999)
 
         maximum_inp = [x * 100 for x in range(10**5-1, -1, -1)]
-        self.output_design('10e5 элементов (обратно)', sort_func, 10**5, maximum_inp)
+        output_design('10e5 элементов (обратно)', sort_func, maximum_inp, 0, 99999)
 
 
 if __name__ == "__main__":
-    current_dir = os.path.dirname(os.path.abspath(__file__))
-    src_dir = os.path.join(current_dir, '..', 'src')
-    sys.path.insert(0, src_dir)
-
-    from main import RandomizedQuickSort as sort_func
     unittest.main()

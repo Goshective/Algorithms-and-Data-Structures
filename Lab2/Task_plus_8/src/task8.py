@@ -1,4 +1,11 @@
 import os
+import sys
+
+PATH = os.path.dirname(os.path.abspath(__file__))
+sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
+
+from Lab2.utils import read_len_double_lst_file, write_lst_file
+
 
 def sum_polynoms(A, B, shift_A=0, shift_B=0):
     len_r = max(len(A) + shift_A, len(B) + shift_B)
@@ -33,25 +40,13 @@ def multiply_polynoms(n, A, B):
     R = sum_polynoms(VW, UZ)
     return R
 
-def main(cur_dir):
-    n, a, b = read_file(os.path.join(cur_dir, 'input.txt'), 
-                       int,
-                       lambda x: [int(i) for i in x.split()],
-                       lambda x: [int(i) for i in x.split()]
-                       )
+def main():
+    n, a, b = read_len_double_lst_file(os.path.join(PATH, 'input.txt'), int)
     res = multiply_polynoms(n, a[::-1], b[::-1])
     if res[-1] == 0:
         res.pop()
-    write_lst_file(os.path.join(cur_dir, 'output.txt'), res[::-1])
+    write_lst_file(os.path.join(PATH, 'output.txt'), res[::-1])
 
 
 if __name__ == "__main__":
-    import os
-    import sys
-    
-    cur_dir = os.path.dirname(os.path.abspath(__file__))
-    common_dir = os.path.join(cur_dir, '..', '..', '..')
-    sys.path.insert(0, common_dir)
-
-    from utils import read_file, write_lst_file
-    main(cur_dir)
+    main()
