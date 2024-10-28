@@ -11,7 +11,7 @@ from test_utils import output_design
 
 
 class RandomizedQuickSortTestCase(unittest.TestCase):
-    def test_correctness(self):
+    def test_should_sort(self):
         inp = [31, 41, 59, 26, 41, 58]
         sort_func(inp, 0, len(inp) - 1)
         self.assertEqual(inp, [26, 31, 41, 41, 58, 59])
@@ -20,7 +20,7 @@ class RandomizedQuickSortTestCase(unittest.TestCase):
         sort_func(inp, 0, len(inp) - 1)
         self.assertEqual(inp, list(range(10)))
     
-    def test_time_memory(self):
+    def test_should_fit_time_memory_limit(self):
         minimum_inp = list(range(100))
         output_design('100 элементов', sort_func, minimum_inp, 0, 99)
 

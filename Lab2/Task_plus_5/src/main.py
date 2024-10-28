@@ -33,8 +33,8 @@ def solution(n, lst):
     return int(is_more_than_half(lst, 0, n-1)[0])
 
 def main():
-    n, lst = read_len_lst_file(os.path.join(PATH, 'input.txt'), int)
-    write_file(os.path.join(PATH, 'output.txt'), solution(n, lst))
+    n, lst = read_len_lst_file(os.path.join(PATH, 'txtf', 'input.txt'), int)
+    write_file(os.path.join(PATH, 'txtf', 'output.txt'), solution(n, lst))
 
 
 if __name__ == "__main__":

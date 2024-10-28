@@ -46,9 +46,9 @@ def merge_sort(lst, l, r):
         merge(lst, l, m, r)
 
 def main():
-    n, lst = read_len_lst_file(os.path.join(PATH, 'input.txt'), int)
+    n, lst = read_len_lst_file(os.path.join(PATH, 'txtf', 'input.txt'), int)
     merge_sort(lst, 0, n - 1)
-    write_lst_file(os.path.join(PATH, 'output.txt'), lst)
+    write_lst_file(os.path.join(PATH, 'txtf', 'output.txt'), lst)
 
 
 if __name__ == "__main__":

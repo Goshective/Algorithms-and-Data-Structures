@@ -57,13 +57,13 @@ def solution(n, m, a, b, sort_func):
     return sum(res_arr[i] for i in range(0, n*m, 10))
 
 def main():
-    (n, m), a, b = read_file(os.path.join(PATH, 'input.txt'), 
+    (n, m), a, b = read_file(os.path.join(PATH, 'txtf', 'input.txt'), 
                            lambda x: map(int, x.split()),
                            lambda x: [int(i) for i in x.split()],
                            lambda x: [int(i) for i in x.split()]
                            )
     res = solution(n, m, a, b, radix_sort)
-    write_file(os.path.join(PATH, 'output.txt'), res)
+    write_file(os.path.join(PATH, 'txtf', 'output.txt'), res)
 
 
 if __name__ == "__main__":

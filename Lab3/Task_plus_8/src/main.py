@@ -12,10 +12,10 @@ def solution(_, k, points):
     return points[:k]
 
 def main():
-    (n, k), points = read_multi_lst_file(os.path.join(PATH, 'input.txt'))
+    (n, k), points = read_multi_lst_file(os.path.join(PATH, 'txtf', 'input.txt'))
     ans = solution(n, k, points)
 
-    write_lst_file(os.path.join(PATH, 'output.txt'), ans, sep=',')
+    write_lst_file(os.path.join(PATH, 'txtf', 'output.txt'), ans, sep=',')
 
 
 if __name__ == "__main__":

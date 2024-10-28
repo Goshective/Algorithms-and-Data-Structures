@@ -3,6 +3,7 @@ import os
 import sys
 
 PATH = os.path.dirname(os.path.abspath(__file__))
+# LEFT_IDX = 0
 sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
 
 from Lab3.utils import read_len_lst_file, write_lst_file
@@ -28,9 +29,9 @@ def RandomizedQuickSort(A, l, r):
     return
 
 def main():
-    n, lst = read_len_lst_file(os.path.join(PATH, 'input.txt'), int)
+    n, lst = read_len_lst_file(os.path.join(PATH, 'txtf', 'input.txt'), int)
     RandomizedQuickSort(lst, 0, n-1)
-    write_lst_file(os.path.join(PATH, 'output.txt'), lst)
+    write_lst_file(os.path.join(PATH, 'txtf', 'output.txt'), lst)
 
 
 if __name__ == "__main__":

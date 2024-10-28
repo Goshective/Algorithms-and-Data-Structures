@@ -48,11 +48,11 @@ def solution(n, lst):
     return low, high + 1, round(profit, 3)
 
 def main():
-    lst = read_lst_file(os.path.join(PATH, 'input.txt'), float)
+    lst = read_lst_file(os.path.join(PATH, 'txtf', 'input.txt'), float)
     res = solution(len(lst), lst)
     
     line = f'Buy: for {lst[res[0]]} at {res[0]}, Sell: for {lst[res[1]]} at {res[1]}. Profit: {res[2]}'
-    write_lst_line_file(os.path.join(PATH, 'output.txt'), res, line)
+    write_lst_line_file(os.path.join(PATH, 'txtf', 'output.txt'), res, line)
 
 
 if __name__ == "__main__":

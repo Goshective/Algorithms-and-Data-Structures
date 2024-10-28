@@ -39,8 +39,8 @@ def solution(n, lst):
     return low, high + 1, round(profit, 3)
 
 def main():
-    n, lst = read_len_lst_file(os.path.join(PATH, 'input.txt'), int)
-    write_lst_file(os.path.join(PATH, 'output.txt'), solution(n, lst))
+    n, lst = read_len_lst_file(os.path.join(PATH, 'txtf', 'input.txt'), int)
+    write_lst_file(os.path.join(PATH, 'txtf', 'output.txt'), solution(n, lst))
 
 
 if __name__ == "__main__":

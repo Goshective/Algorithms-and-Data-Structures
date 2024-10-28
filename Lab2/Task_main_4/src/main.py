@@ -27,8 +27,8 @@ def bin_search_loop(n, lst, values):
     return res
 
 def main():
-    n, lst, _, values = read_double_len_lst_file(os.path.join(PATH, 'input.txt'), int)
-    write_lst_file(os.path.join(PATH, 'output.txt'), bin_search_loop(n, lst, values))
+    n, lst, _, values = read_double_len_lst_file(os.path.join(PATH, 'txtf', 'input.txt'), int)
+    write_lst_file(os.path.join(PATH, 'txtf', 'output.txt'), bin_search_loop(n, lst, values))
 
 
 if __name__ == "__main__":

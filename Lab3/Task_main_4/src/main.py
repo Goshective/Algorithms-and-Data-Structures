@@ -42,9 +42,9 @@ def solution(s, p, lst, points):
     return ans
 
 def main():
-    (s, p), segments, points = read_multi_lst_file(os.path.join(PATH, 'input.txt'), True)
+    (s, p), segments, points = read_multi_lst_file(os.path.join(PATH, 'txtf', 'input.txt'), True)
     ans = solution(s, p, segments, points)
-    write_lst_file(os.path.join(PATH, 'output.txt'), ans)
+    write_lst_file(os.path.join(PATH, 'txtf', 'output.txt'), ans)
 
 
 if __name__ == "__main__":

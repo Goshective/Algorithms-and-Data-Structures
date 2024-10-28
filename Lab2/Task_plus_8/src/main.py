@@ -41,11 +41,11 @@ def multiply_polynoms(n, A, B):
     return R
 
 def main():
-    n, a, b = read_len_double_lst_file(os.path.join(PATH, 'input.txt'), int)
+    n, a, b = read_len_double_lst_file(os.path.join(PATH, 'txtf', 'input.txt'), int)
     res = multiply_polynoms(n, a[::-1], b[::-1])
     if res[-1] == 0:
         res.pop()
-    write_lst_file(os.path.join(PATH, 'output.txt'), res[::-1])
+    write_lst_file(os.path.join(PATH, 'txtf', 'output.txt'), res[::-1])
 
 
 if __name__ == "__main__":

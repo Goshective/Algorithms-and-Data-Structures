@@ -26,8 +26,8 @@ def solution(n): # reverse qsort
     return ans
 
 def main():
-    n = read_file(os.path.join(PATH, 'input.txt'), int)[0]
-    write_lst_file(os.path.join(PATH, 'output.txt'), solution(n))
+    n = read_file(os.path.join(PATH, 'txtf', 'input.txt'), int)[0]
+    write_lst_file(os.path.join(PATH, 'txtf', 'output.txt'), solution(n))
 
 
 if __name__ == "__main__":

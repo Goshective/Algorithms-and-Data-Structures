@@ -27,8 +27,8 @@ def solution(citations):
     return c
 
 def main():
-    lst = read_lst_file(os.path.join(PATH, 'input.txt'), int, sep=',')
-    write_file(os.path.join(PATH, 'output.txt'), solution(lst))
+    lst = read_lst_file(os.path.join(PATH, 'txtf', 'input.txt'), int, sep=',')
+    write_file(os.path.join(PATH, 'txtf', 'output.txt'), solution(lst))
 
 
 if __name__ == "__main__":
