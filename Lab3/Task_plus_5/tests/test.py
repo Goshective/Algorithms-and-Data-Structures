@@ -8,6 +8,7 @@ sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
 from Lab3.Task_plus_5.src.main import solution
 from test_utils import output_design
 
+
 class HirschIndexTestCase(unittest.TestCase):
     def test_correctness(self):
         self.assertEqual(solution([3,0,6,1,5]), 3)

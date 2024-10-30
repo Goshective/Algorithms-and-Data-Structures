@@ -21,11 +21,11 @@ class PointsTestCase(unittest.TestCase):
     def test_time_memory(self):
         output_design('10 элементов', solution, 10, 10, [[0, i] for i in range(10)])
 
-        medium_inp = [[randint(-100, 100), randint(-100, 100)] for _ in range(1000)]
-        output_design('1000 элементов', solution, 1000, 1000, medium_inp)
+        medium_inp = [[randint(-100, 100), randint(-100, 100)] for _ in range(10000)]
+        output_design('10000 элементов', solution, 10000, 10000, medium_inp)
 
         maximum_inp = [[randint(-10**4, 10**4), randint(-10**4, 10**4)] for _ in range(10**5)]
-        output_design('5000 элементов', solution, 10**5, 10**5, maximum_inp)
+        output_design('10e5 элементов', solution, 10**5, 10**5, maximum_inp)
 
 
 if __name__ == "__main__":
