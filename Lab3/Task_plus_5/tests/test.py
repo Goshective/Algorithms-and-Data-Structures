@@ -10,20 +10,42 @@ from test_utils import output_design
 
 
 class HirschIndexTestCase(unittest.TestCase):
-    def test_correctness(self):
-        self.assertEqual(solution([3,0,6,1,5]), 3)
+    def test_find_hirsch_index(self):
+        # given
+        res = solution([3,0,6,1,5])
+        # when
+        # then
+        self.assertEqual(res, 3)
 
-        self.assertEqual(solution([1,3,1]), 1)
+        # given
+        res = solution([1,3,1])
+        # when
+        # then
+        self.assertEqual(res, 1)
 
-        self.assertEqual(solution([500,500,600]), 3)
+        # given
+        res = solution([500,500,600])
+        # when
+        # then
+        self.assertEqual(res, 3)
     
-    def test_time_memory(self):
-        output_design('10 элементов', solution, list(range(10)))
+    def test_should_fit_time_memory_limit(self):
+        # given
+        minimum_inp = list(range(10))
+        # when
+        # then
+        output_design('10 элементов', solution, minimum_inp)
 
+        # given
         medium_inp = [100-i for i in range(100)]
+        # when
+        # then
         output_design('100 элементов', solution, medium_inp)
 
+        # given
         maximum_inp = [(5000-i)//5 for i in range(5000)]
+        # when
+        # then
         output_design('5000 элементов', solution, maximum_inp)
 
 

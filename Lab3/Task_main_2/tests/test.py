@@ -10,19 +10,43 @@ from test_utils import output_design
 
 
 class SegmentsTestCase(unittest.TestCase):
-    def test_correctness(self):
-        self.assertEqual(solution(3), [1, 3, 2])
+    def test_shold_find__the_worst_case(self):
+        # given
+        res = solution(3) 
+        # when
+        # then
+        self.assertEqual(res, [1, 3, 2])
 
-        self.assertEqual(solution(4), [1, 4, 2, 3])
+        # given
+        res = solution(4) 
+        # when
+        # then
+        self.assertEqual(res, [1, 4, 2, 3])
 
-        self.assertEqual(solution(5), [1, 4, 5, 3, 2])
+        # given
+        res = solution(5) 
+        # when
+        # then
+        self.assertEqual(res, [1, 4, 5, 3, 2])
     
-    def test_time_memory(self):
-        output_design('10 элементов', solution, 10)
+    def test_should_fit_time_memory_limit(self):
+        # given
+        minimum_input = 10
+        # when
+        # then
+        output_design('10 элементов', solution, minimum_input)
 
-        output_design('1000 элементов', solution, 1000)
+        # given
+        medium_input = 1000
+        # when
+        # then
+        output_design('1000 элементов', solution, medium_input)
 
-        output_design('10e6 элементов', solution, 4*10**5)
+        # given
+        maximum_input = 4*10**5
+        # when
+        # then
+        output_design('10e6 элементов', solution, maximum_input)
 
 
 if __name__ == "__main__":
