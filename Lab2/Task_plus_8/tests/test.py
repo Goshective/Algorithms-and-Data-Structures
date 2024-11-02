@@ -9,7 +9,7 @@ from Lab2.Task_plus_8.src.main import sum_polynoms, multiply_polynoms
 from test_utils import output_design
 
 
-class MultiplyPolynomialsTestCase(unittest.TestCase):
+class TestCaseMultiplyPolynomials(unittest.TestCase):
     def test_should_sum_poly(self):
         # given
         a, b = [1, 2, 3], [3, 4, 5]

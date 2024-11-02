@@ -10,7 +10,7 @@ from Lab2.Task_main_1.src.main import merge_sort as sort_func
 from test_utils import output_design
 
 
-class InsertionSortTestCase(unittest.TestCase):
+class TestCaseInsertionSort(unittest.TestCase):
     def test_should_sort(self):
         # given
         inp = [31, 41, 59, 26, 41, 58]

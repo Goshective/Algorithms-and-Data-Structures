@@ -9,7 +9,7 @@ from Lab2.Task_plus_7.src.main import solution
 from test_utils import output_design
 
 
-class MaxSubarrayLinearTestCase(unittest.TestCase):
+class TestCaseMaxSubarrayLinear(unittest.TestCase):
     def test_find_subarray_points(self):
         # given
         arr = [100, 113, 110, 85, 105, 102, 86, 63, 81, 101, 94, 106, 101, 79, 94, 90, 97]

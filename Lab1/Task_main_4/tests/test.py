@@ -9,7 +9,7 @@ from Lab1.Task_main_4.src.main import linear_search
 from test_utils import output_design
 
 
-class LinearSearchTestCase(unittest.TestCase):
+class TestCaseLinearSearch(unittest.TestCase):
     def test_should_search(self):
         # given
         inp = [1, 2, 3, 4, 1, 2, 3, 1], 1

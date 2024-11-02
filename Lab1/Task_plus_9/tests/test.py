@@ -9,7 +9,7 @@ from Lab1.Task_plus_9.src.main import bin_sum
 from test_utils import output_design
 
 
-class InsertionSortTestCase(unittest.TestCase):
+class TestCaseInsertionSort(unittest.TestCase):
     def test_should_sum(self):
         # given
         a, b = list(map(int, '1000001')), list(map(int, '1111111'))

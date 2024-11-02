@@ -9,7 +9,7 @@ from Lab1.Task_plus_6.src.main import bubble_sort as sort_func
 from test_utils import output_design
 
 
-class BubbleSortTestCase(unittest.TestCase):
+class TestCaseBubbleSort(unittest.TestCase):
     def test_should_sort(self):
         # given
         inp = [31, 41, 59, 26, 41, 58]

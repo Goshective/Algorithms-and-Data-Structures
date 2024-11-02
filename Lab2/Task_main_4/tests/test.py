@@ -9,7 +9,7 @@ from Lab2.Task_main_4.src.main import bin_search_loop
 from test_utils import output_design
 
 
-class InsertionSortTestCase(unittest.TestCase):
+class TestCaseInsertionSort(unittest.TestCase):
     def test_should_find(self):
         # given
         # when

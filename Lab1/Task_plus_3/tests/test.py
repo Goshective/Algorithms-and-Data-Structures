@@ -9,7 +9,7 @@ from Lab1.Task_plus_3.src.main import reverse_insertion_sort as sort_func
 from test_utils import output_design
 
 
-class ReverseInsertionSortTestCase(unittest.TestCase):
+class TestCaseReverseInsertionSort(unittest.TestCase):
     def test_should_sort_in_reverse(self):
         # given
         inp = [31, 41, 59, 26, 41, 58]

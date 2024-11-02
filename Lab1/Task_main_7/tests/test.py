@@ -9,7 +9,7 @@ from Lab1.Task_main_7.src.main import find_info
 from test_utils import output_design
 
 
-class IndicesInsertionSortTestCase(unittest.TestCase):
+class TestCaseIndicesInsertionSort(unittest.TestCase):
     def test_should_find_indices(self):
         # given
         inp = [10.00, 8.70, 0.01, 5.00, 3.00]

@@ -9,7 +9,7 @@ from Lab2.Task_plus_5.src.main import solution
 from test_utils import output_design
 
 
-class InsertionSortTestCase(unittest.TestCase):
+class TestCaseInsertionSort(unittest.TestCase):
     def test_should_be_over_the_half(self):
         # given
         inp = [2, 3, 9, 2, 2]

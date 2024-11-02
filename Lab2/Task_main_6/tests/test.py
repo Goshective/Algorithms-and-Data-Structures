@@ -9,7 +9,7 @@ from Lab2.Task_main_6.src.main import solution, diff_array
 from test_utils import output_design
 
 
-class StocksTestCase(unittest.TestCase):
+class TestCaseStocks(unittest.TestCase):
     def test_should_find_difference(self):
         # given
         arr = [100, 113, 110, 85, 105, 102, 86, 63, 81, 101, 94, 106, 101, 79, 94, 90, 97]
