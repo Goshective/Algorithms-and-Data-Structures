@@ -10,19 +10,55 @@ from test_utils import output_design
 
 
 class InsertionSortTestCase(unittest.TestCase):
-    def test_correctness(self):
-        self.assertEqual(solution(5, [2, 3, 9, 2, 2]), 1)
-        self.assertEqual(solution(4, [1, 2, 3, 4]), 0)
-        self.assertEqual(solution(9, [0, 3, 9, 2, 2, 2, 2, 2, 2]), 1)
-        self.assertEqual(solution(9, [0, 3, 0, 3, 0, 3, 0, 3, 0]), 1)
-        self.assertEqual(solution(9, [0, 3, 0, 3, 0, 3, 0, 3, 1]), 0)
+    def test_should_be_over_the_half(self):
+        # given
+        inp = [2, 3, 9, 2, 2]
+        # when
+        # then
+        self.assertEqual(solution(len(inp), inp), 1)
+
+        # given
+        inp = [1, 2, 3, 4]
+        # when
+        # then
+        self.assertEqual(solution(len(inp), inp), 0)
+
+        # given
+        inp = [0, 3, 9, 2, 2, 2, 2, 2, 2]
+        # when
+        # then
+        self.assertEqual(solution(len(inp), inp), 1)
+
+        # given
+        inp = [0, 3, 0, 3, 0, 3, 0, 3, 0]
+        # when
+        # then
+        self.assertEqual(solution(len(inp), inp), 1)
+
+        # given
+        inp = [0, 3, 0, 3, 0, 3, 0, 3, 1]
+        # when
+        # then
+        self.assertEqual(solution(len(inp), inp), 0)
     
-    def test_time_memory(self):
-        output_design(1, solution, 4, [1, 2, 3, 4])
+    def test_should_fit_time_memory_limit(self):
+        # given
+        minimum_inp = [1, 2, 3, 4]
+        # when
+        # then
+        output_design(1, solution, len(minimum_inp), minimum_inp)
 
-        output_design(2, solution, 10**3, list(range(10**3)))
-
-        output_design(3, solution, 5*10**4, [100]*5*10**4)
+        # given
+        medium_inp = list(range(10**3))
+        # when
+        # then
+        output_design(2, solution, len(medium_inp), medium_inp)
+        
+        # given
+        maximum_inp = [100]*5*10**4
+        # when
+        # then
+        output_design(3, solution, len(maximum_inp), maximum_inp)
 
 
 if __name__ == "__main__":
