@@ -48,6 +48,13 @@ class RandomizedQuickSortTestCase(unittest.TestCase):
         output_design('10e4 элементов', sort_func, medium_inp, 0, 10**4-1)
 
         # given
+        medium_inp = list(range(10**4)) * 4 # 4 copies of each element
+        # when
+        shuffle(medium_inp)
+        # then
+        output_design('4*10e4 элементов (Повторения)', sort_func, medium_inp, 0, 4*10**4-1)
+
+        # given
         medium_inp = list(range(10**5))
         # when
         shuffle(medium_inp)
