@@ -9,7 +9,7 @@ from Lab3.Task_plus_5.src.main import solution
 from test_utils import output_design
 
 
-class HirschIndexTestCase(unittest.TestCase):
+class TestCaseHirschIndex(unittest.TestCase):
     def test_find_hirsch_index(self):
         # given
         inp = [3,0,6,1,5]

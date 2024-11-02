@@ -14,7 +14,7 @@ from Lab3.Task_plus_6.src.main import (
 from test_utils import output_design
 
 
-class MultiArrayTestCase(unittest.TestCase):
+class TestCaseMultiArray(unittest.TestCase):
     def test_should_sort(self):
         # given
         a, b = [7, 1, 4, 9], [2, 7, 8, 11]

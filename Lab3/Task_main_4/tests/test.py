@@ -9,7 +9,7 @@ from Lab3.Task_main_4.src.main import solution
 from test_utils import output_design
 
 
-class SegmentsTestCase(unittest.TestCase):
+class TestCaseSegments(unittest.TestCase):
     def test_should_find_intersections(self):
         # given
         inp = [[0, 5], [7, 10]], [1, 6, 11]

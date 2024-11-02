@@ -10,7 +10,7 @@ from Lab3.Task_plus_8.src.main import solution
 from test_utils import output_design
 
 
-class PointsTestCase(unittest.TestCase):
+class TestCasePoints(unittest.TestCase):
     def test_should_find_k_nearest_points(self):
         # given
         inp = [[3, 3], [-2, 4], [5, -1]]

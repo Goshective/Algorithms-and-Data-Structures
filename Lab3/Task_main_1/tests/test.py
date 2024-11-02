@@ -10,7 +10,7 @@ from Lab3.Task_main_1.src.main import RandomizedQuickSort as sort_func
 from test_utils import output_design
 
 
-class RandomizedQuickSortTestCase(unittest.TestCase):
+class TestsRandomizedQuickSort(unittest.TestCase):
     def test_should_sort(self):
         # given
         inp = [31, 41, 59, 26, 41, 58]

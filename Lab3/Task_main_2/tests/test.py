@@ -9,7 +9,7 @@ from Lab3.Task_main_2.src.main import solution
 from test_utils import output_design
 
 
-class SegmentsTestCase(unittest.TestCase):
+class TestCaseSegments(unittest.TestCase):
     def test_shold_find__the_worst_case(self):
         # given
         inp = 3
