@@ -13,22 +13,22 @@ from test_utils import output_design
 class PointsTestCase(unittest.TestCase):
     def test_should_find_k_nearest_points(self):
         # given
-        res = solution(3, 2, [[3, 3], [-2, 4], [5, -1]])
+        inp = [[3, 3], [-2, 4], [5, -1]]
         # when
         # then
-        self.assertEqual(res, [[3, 3], [-2, 4]])
+        self.assertEqual(solution(3, 2, inp), [[3, 3], [-2, 4]])
         
         # given
-        res = solution(2, 1, [[1,3], [-2,2]])
+        inp = [[1,3], [-2,2]]
         # when
         # then
-        self.assertEqual(res, [[-2,2]])
+        self.assertEqual(solution(2, 1, inp), [[-2,2]])
 
         # given
-        res = solution(3, 0, [[3, 3], [-2, 4], [5, -1]])
+        inp = [[3, 3], [-2, 4], [5, -1]]
         # when
         # then
-        self.assertEqual(res, [])
+        self.assertEqual(solution(3, 0, inp), [])
     
     def test_should_fit_time_memory_limit(self):
         # given

@@ -12,22 +12,22 @@ from test_utils import output_design
 class SegmentsTestCase(unittest.TestCase):
     def test_shold_find__the_worst_case(self):
         # given
-        res = solution(3) 
+        inp = 3
         # when
         # then
-        self.assertEqual(res, [1, 3, 2])
+        self.assertEqual(solution(inp), [1, 3, 2])
 
         # given
-        res = solution(4) 
+        inp = 4
         # when
         # then
-        self.assertEqual(res, [1, 4, 2, 3])
+        self.assertEqual(solution(inp), [1, 4, 2, 3])
 
         # given
-        res = solution(5) 
+        inp = 5
         # when
         # then
-        self.assertEqual(res, [1, 4, 5, 3, 2])
+        self.assertEqual(solution(inp), [1, 4, 5, 3, 2])
     
     def test_should_fit_time_memory_limit(self):
         # given

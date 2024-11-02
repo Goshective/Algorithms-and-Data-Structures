@@ -12,22 +12,22 @@ from test_utils import output_design
 class SegmentsTestCase(unittest.TestCase):
     def test_should_find_intersections(self):
         # given
-        res = solution(2, 3, [[0, 5], [7, 10]], [1, 6, 11])
+        inp = [[0, 5], [7, 10]], [1, 6, 11]
         # when
         # then
-        self.assertEqual(res, [1, 0, 0])
+        self.assertEqual(solution(2, 3, *inp), [1, 0, 0])
 
         # given
-        res = solution(1, 3, [[-10, 10]], [-100, 100, 0])
+        inp = [[-10, 10]], [-100, 100, 0]
         # when
         # then
-        self.assertEqual(res, [0, 0, 1])
+        self.assertEqual(solution(1, 3, *inp), [0, 0, 1])
 
         # given
-        res = solution(3, 2, [[0, 5], [-3, 2], [7, 10]], [1, 6])
+        inp = [[0, 5], [-3, 2], [7, 10]], [1, 6]
         # when
         # then
-        self.assertEqual(res, [2, 0])
+        self.assertEqual(solution(3, 2, *inp), [2, 0])
     
     def test_should_fit_time_memory_limit(self):
         # given

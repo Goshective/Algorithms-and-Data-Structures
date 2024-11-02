@@ -12,22 +12,22 @@ from test_utils import output_design
 class HirschIndexTestCase(unittest.TestCase):
     def test_find_hirsch_index(self):
         # given
-        res = solution([3,0,6,1,5])
+        inp = [3,0,6,1,5]
         # when
         # then
-        self.assertEqual(res, 3)
+        self.assertEqual(solution(inp), 3)
 
         # given
-        res = solution([1,3,1])
+        inp = [1,3,1]
         # when
         # then
-        self.assertEqual(res, 1)
+        self.assertEqual(solution(inp), 1)
 
         # given
-        res = solution([500,500,600])
+        inp = [500,500,600]
         # when
         # then
-        self.assertEqual(res, 3)
+        self.assertEqual(solution(inp), 3)
     
     def test_should_fit_time_memory_limit(self):
         # given
