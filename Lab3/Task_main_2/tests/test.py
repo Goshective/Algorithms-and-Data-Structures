@@ -6,7 +6,7 @@ PATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
 
 from Lab3.Task_main_2.src.main import solution
-from test_utils import output_design
+from test_utils import (ConsoleTimeMemory as TM, MB)
 
 
 class TestCaseSegments(unittest.TestCase):
@@ -30,23 +30,33 @@ class TestCaseSegments(unittest.TestCase):
         self.assertEqual(solution(inp), [1, 4, 5, 3, 2])
     
     def test_should_fit_time_memory_limit(self):
-        # given
-        minimum_input = 10
-        # when
-        # then
-        output_design('10 элементов', solution, minimum_input)
+        test_data = (('10 элементов', 10), 
+                     ('1000 элементов', 1000), 
+                     ('10e6 элементов', 10**6))
+        
+        expected_memory = 256 * MB
+        expected_time = 2
 
-        # given
-        medium_input = 1000
-        # when
-        # then
-        output_design('1000 элементов', solution, medium_input)
+        time_for_tests = []
 
-        # given
-        maximum_input = 4*10**5
-        # when
-        # then
-        output_design('10e6 элементов', solution, maximum_input)
+        for time_mod, memory_mod in ((1, 0), (0, 1)):
+            for test_id, (test_name, input_by_size) in enumerate(test_data):
+
+                if time_mod:
+                    time_for_tests.append(TM.count_time(solution, input_by_size))
+
+                if memory_mod:
+
+                    # given
+                    res_memory = TM.count_memory(solution, input_by_size)
+                    res_time = time_for_tests[test_id]
+
+                    # when
+                    TM.output_design(test_name, res_time, res_memory)
+
+                    # then
+                    self.assertLessEqual(res_time, expected_time)
+                    self.assertLessEqual(res_memory, expected_memory)
 
 
 if __name__ == "__main__":

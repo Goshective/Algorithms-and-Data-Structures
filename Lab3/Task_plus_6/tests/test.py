@@ -9,9 +9,8 @@ from Lab3.Task_plus_6.src.main import (
     solution, 
     qsort,
     radix_sort,
-    cross_multiplication
     )
-from test_utils import output_design
+from test_utils import (ConsoleTimeMemory as TM, MB)
 
 
 class TestCaseMultiArray(unittest.TestCase):
@@ -23,34 +22,35 @@ class TestCaseMultiArray(unittest.TestCase):
         self.assertEqual(solution(4, 4, a, b, qsort), 51)
     
     def test_should_fit_time_memory_limit(self):
-        for func_name, func in (('\nQuick sort (Python):', qsort), ('\nRadix sort:', radix_sort)):
-            print(func_name)
+        expected_memory = 256 * MB
+        expected_time = 2
 
-            # given
-            a, b = [7, 1, 4, 9], [2, 7, 8, 11]
-            # when
-            # then
-            output_design('10 элементов', solution, 4, 4, a, b, func)
+        time_for_tests = []
 
-            # given
-            a, b = list(range(250, 0, -1)), list(range(250, 0, -1))
-            # when
-            # then
-            output_design('250^2 элементов', solution, 250, 250, a, b, func)
-            
-            # given
-            a, b = list(range(1000, 0, -1)), list(range(1000, 0, -1))
-            # when
-            # then
-            output_design('1000^2 элементов', solution, 1000, 1000, a, b, func)
+        for time_mod, memory_mod in ((1, 0), (0, 1)):
+            for func_id, func_name, func in ((0, '\nQuick sort (Python):', qsort), (1, '\nRadix sort:', radix_sort)):
 
-    def test_should_decrease_result_by_time_of_cross_multiplication(self):
-        for i in (10, 250, 1000):
-            # given
-            a = list(range(i))
-            # when
-            # then
-            output_design(f'на время перемножения {i} элементов', cross_multiplication, a, a)
+                test_data = [(f'{i}^2 элементов', (i, i, list(range(i, 0, -1)), list(range(i, 0, -1)), func)) 
+                             for i in (4, 500, 1000)]
+                
+                for test_id, (test_name, input_by_size) in enumerate(test_data):
+
+                    if time_mod:
+                        time_for_tests.append(TM.count_time(solution, *input_by_size))
+
+                    if memory_mod:
+
+                        # given
+                        res_memory = TM.count_memory(solution, *input_by_size)
+                        res_time = time_for_tests[func_id*3 + test_id]
+
+                        # when
+                        print(func_name)
+                        TM.output_design(test_name, res_time, res_memory)
+
+                        # then
+                        self.assertLessEqual(res_time, expected_time)
+                        self.assertLessEqual(res_memory, expected_memory)
 
 
 if __name__ == "__main__":
