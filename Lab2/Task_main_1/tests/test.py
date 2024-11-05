@@ -7,7 +7,7 @@ PATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
 
 from Lab2.Task_main_1.src.main import merge_sort as sort_func
-from test_utils import output_design
+from test_utils import (ConsoleTimeMemory as TM, MB)
 
 
 class TestCaseInsertionSort(unittest.TestCase):
@@ -27,27 +27,42 @@ class TestCaseInsertionSort(unittest.TestCase):
         self.assertEqual(inp, list(range(10)))
     
     def test_should_fit_time_memory_limit(self):
-        # given
+        test_data = []
+
         minimum_inp = list(range(100))
-        # when
-        output_design('100 элементов', sort_func, minimum_inp, 0, 99)
-        # then
-        self.assertEqual(minimum_inp, list(range(100)))
+        test_data.append(('100 элементов', (minimum_inp, 0, len(minimum_inp) - 1)))
 
-        # given
-        medium_inp = list(range(1000))
+        medium_inp = list(range(10**4))
         shuffle(medium_inp)
-        # when
-        output_design('1000 элементов', sort_func, medium_inp, 0, 999)
-        # then
-        self.assertEqual(medium_inp, list(range(1000)))
+        test_data.append(('10000 элементов', (medium_inp, 0, len(medium_inp) - 1)))
 
-        # given
-        maximum_inp = [x * 5*10**4 for x in range(2*10**4-1, -1, -1)]
-        # when
-        output_design('2*10e4 элементов', sort_func, maximum_inp, 0, 2*10**4-1)
-        # then
-        self.assertEqual(maximum_inp, list(range(0, 10**9, 5*10**4)))
+        maximum_inp = [x * 100 for x in range(2*10**4-1, -1, -1)]
+        test_data.append(('2*10e4 элементов', (maximum_inp, 0, len(maximum_inp) - 1)))
+        
+
+        expected_memory = 256 * MB
+        expected_time = 2
+
+        time_for_tests = []
+
+        for time_mod, memory_mod in ((1, 0), (0, 1)):
+            for test_id, (test_name, input_by_size) in enumerate(test_data):
+
+                if time_mod:
+                    time_for_tests.append(TM.count_time(sort_func, *input_by_size))
+
+                if memory_mod:
+
+                    # given
+                    res_memory = TM.count_memory(sort_func, *input_by_size)
+                    res_time = time_for_tests[test_id]
+
+                    # when
+                    TM.output_design(test_name, res_time, res_memory)
+
+                    # then
+                    self.assertLessEqual(res_time, expected_time)
+                    self.assertLessEqual(res_memory, expected_memory)
         
 
 

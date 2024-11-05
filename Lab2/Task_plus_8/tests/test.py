@@ -6,7 +6,7 @@ PATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
 
 from Lab2.Task_plus_8.src.main import sum_polynoms, multiply_polynoms
-from test_utils import output_design
+from test_utils import (ConsoleTimeMemory as TM, MB)
 
 
 class TestCaseMultiplyPolynomials(unittest.TestCase):
@@ -43,23 +43,32 @@ class TestCaseMultiplyPolynomials(unittest.TestCase):
         self.assertEqual(multiply_polynoms(len(b), a, b), [2, 9, 17, 23, 34, 39, 19, 3, -6])
     
     def test_should_fit_time_memory_limit(self):
-        # given
-        minimum_inp = [0]
-        # when
-        # then
-        output_design(1, multiply_polynoms, 1, minimum_inp, minimum_inp)
+        test_data = [(f'{i} элементов', (i, [1]*i, [1, -1]* (i//2))) for i in 
+                     (10, 250, 500)]
 
-        # given
-        medium_inp = [1]* 100, [1, -1]*50
-        # when
-        # then
-        output_design(2, multiply_polynoms, 100, *medium_inp)
+        expected_memory = 256 * MB
+        expected_time = 2
 
-        # given
-        maximum_inp = [1]* 500, [1, -1]*250
-        # when
-        # then
-        output_design(3, multiply_polynoms, 500, *maximum_inp)
+        time_for_tests = []
+
+        for time_mod, memory_mod in ((1, 0), (0, 1)):
+            for test_id, (test_name, input_by_size) in enumerate(test_data):
+
+                if time_mod:
+                    time_for_tests.append(TM.count_time(multiply_polynoms, *input_by_size))
+
+                if memory_mod:
+
+                    # given
+                    res_memory = TM.count_memory(multiply_polynoms, *input_by_size)
+                    res_time = time_for_tests[test_id]
+
+                    # when
+                    TM.output_design(test_name, res_time, res_memory)
+
+                    # then
+                    self.assertLessEqual(res_time, expected_time)
+                    self.assertLessEqual(res_memory, expected_memory)
 
 
 if __name__ == "__main__":
