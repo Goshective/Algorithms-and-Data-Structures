@@ -44,8 +44,9 @@ class TestCaseMultiArray(unittest.TestCase):
                         res_memory = TM.count_memory(solution, *input_by_size)
                         res_time = time_for_tests[func_id*3 + test_id]
 
+                        if test_id % 3 == 0:
+                            print(func_name)
                         # when
-                        print(func_name)
                         TM.output_design(test_name, res_time, res_memory)
 
                         # then
