@@ -13,30 +13,30 @@ from test_utils import (ConsoleTimeMemory as TM, MB)
 class TestsStack(unittest.TestCase):
     def test_should_emulate_stack(self):
         # given
-        inp = [["+", 1],
-               ['+', 10],
-               ['-', None],
-               ['+', 2],
-               ['+', 1234],
-               ['-',None]]
+        inp = ['+ 1',
+               '+ 10',
+               '-',
+               '+ 2',
+               '+ 1234',
+               '-']
         # when
         # then
         self.assertEqual(solution(inp), [10, 1234])
 
-        inp = [["+", 1],
-               ['+', 10],
-               ['+', 20],
-               ['-', None],
-               ['-', None],
-               ['-',None]]
+        inp = ['+ 1',
+               '+ 10',
+               '+ 20',
+               '-',
+               '-',
+               '-']
         # when
         # then
         self.assertEqual(solution(inp), [20, 10, 1])
     
     def test_should_fit_time_memory_limit(self):
-        test_data = [('100 элементов', [['+', i] for i in range(5*10)] + [['-', None] for _ in range(5*10)]),
-                     ('10e4 элементов', [['+', i] for i in range(5*10**3)] + [['-', None] for _ in range(5*10**3)]),
-                     ('10e6 элементов', [['+', i] for i in range(5*10**5)] + [['-', None] for _ in range(5*10**5)])]
+        test_data = [('100 элементов', [f'+ {i}' for i in range(5*10)] + ['-' for _ in range(5*10)]),
+                     ('10e4 элементов', [f'+ {i}' for i in range(5*10**3)] + ['-' for _ in range(5*10**3)]),
+                     ('10e6 элементов', [f'+ {i}' for i in range(5*10**5)] + ['-' for _ in range(5*10**5)])]
 
         expected_memory = 256 * MB
         expected_time = 2

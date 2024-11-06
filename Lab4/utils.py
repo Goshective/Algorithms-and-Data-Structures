@@ -11,20 +11,6 @@ def write_file(path, ans):
         print(ans, file=out, end='')
 
 
-def read_multiple_string_file(path):
-    with open(path, 'r') as inp:
-        n = int(inp.readline())
-        ret = []
-        for _ in range(n):
-            line = inp.readline()
-            if line[0] == '+':
-                cmd_i = line.split()
-                cmd_i[1] = int(cmd_i[1])
-            else:
-                cmd_i = [line.rstrip(), None]
-            ret.append(cmd_i)
-    return (n, ret)
-
 def read_lst_file(path, func, sep=" "):
     with open(path, 'r') as inp:
         lst = [func(i) for i in inp.readline().split(sep=sep)]
@@ -38,9 +24,19 @@ def read_len_lst_file(path, func):
     return n, lst
 
 
+def read_commands(path):
+    with open(path, 'r') as inp:
+        n = int(inp.readline())
+        ret = []
+        for _ in range(n):
+            ret.append(inp.readline().rstrip())
+    return ret
+
+
 def write_lst_file(path, lst, sep=" "):
     with open(path, 'w') as out:
         print(*lst, file=out, sep=sep, end='')
+
 
 def write_lst_by_lines_file(path, lst):
     with open(path, 'w') as out:
