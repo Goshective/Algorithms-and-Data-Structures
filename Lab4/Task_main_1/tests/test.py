@@ -11,7 +11,7 @@ from test_utils import (ConsoleTimeMemory as TM, MB)
 
 
 class TestsStack(unittest.TestCase):
-    def test_should_sort(self):
+    def test_should_emulate_stack(self):
         # given
         inp = [["+", 1],
                ['+', 10],

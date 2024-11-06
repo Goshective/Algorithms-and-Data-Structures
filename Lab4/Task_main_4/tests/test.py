@@ -12,6 +12,22 @@ from test_utils import (ConsoleTimeMemory as TM, MB)
 
 class TestsBrackets(unittest.TestCase):
     def test_should_find_wrong_index(self):
+        inp = '{'
+        # when
+        # then
+        self.assertEqual(solution(inp), 1)
+
+        inp = '{[}'
+        # when
+        # then
+        self.assertEqual(solution(inp), 3)
+
+        inp = 'foo(bar[i);'
+        # when
+        # then
+        self.assertEqual(solution(inp), 10)
+
+    def test_should_return_success(self):
         # given
         inp = '[]'
         # when
@@ -28,25 +44,10 @@ class TestsBrackets(unittest.TestCase):
         # then
         self.assertEqual(solution(inp), 'Success')
 
-        inp = '{'
-        # when
-        # then
-        self.assertEqual(solution(inp), 1)
-
-        inp = '{[}'
-        # when
-        # then
-        self.assertEqual(solution(inp), 3)
-
         inp = 'foo(bar);'
         # when
         # then
         self.assertEqual(solution(inp), 'Success')
-
-        inp = 'foo(bar[i);'
-        # when
-        # then
-        self.assertEqual(solution(inp), 10)
     
     def test_should_fit_time_memory_limit(self):
         test_data = [('100 элементов', '('*5*10 + ')'*5*10),
