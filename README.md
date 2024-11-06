@@ -11,7 +11,14 @@
 python all_tests_runner.py
 ```
 
-### Ссылки на лабораторные
+### Навигация по репозиторию
+
+- [**Лабораторная №0. Введение**](https://github.com/Goshective/Algorithms-and-Data-Structures/tree/main/Lab0)
+- [**Лабораторная №1. Сортировка вставками, выбором, пузырьковая**](https://github.com/Goshective/Algorithms-and-Data-Structures/tree/main/Lab1)
+- [**Лабораторная №2. Сотировка выбором. Метод декомпозиции**](https://github.com/Goshective/Algorithms-and-Data-Structures/tree/main/Lab2)
+- [**Лабораторная №3. Быстрая сотировка, сортировка за линейное время**](https://github.com/Goshective/Algorithms-and-Data-Structures/tree/main/Lab3)
+
+### Ссылки на задания
 
 - [**Все лабораторные**](https://github.com/anton0afanasiev0v/asd_labs)
 - [**Lab 0**](https://github.com/anton0afanasiev0v/asd_labs/blob/main/lab0/%D0%97%D0%B0%D0%B4%D0%B0%D0%BD%D0%B8%D0%B5%20%D0%BA%20%D0%9B%D0%B0%D0%B1%200%20%D0%92%D0%B2%D0%B5%D0%B4%D0%B5%D0%BD%D0%B8%D0%B5.pdf)
