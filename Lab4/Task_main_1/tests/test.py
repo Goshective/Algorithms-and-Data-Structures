@@ -6,43 +6,39 @@ from random import shuffle
 PATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
 
-from Lab3.Task_main_1.src.main import RandomizedQuickSort as sort_func
+from Lab4.Task_main_1.src.main import solution
 from test_utils import (ConsoleTimeMemory as TM, MB)
 
 
-class TestsRandomizedQuickSort(unittest.TestCase):
+class TestsStack(unittest.TestCase):
     def test_should_sort(self):
         # given
-        inp = [31, 41, 59, 26, 41, 58]
+        inp = [["+", 1],
+               ['+', 10],
+               ['-', None],
+               ['+', 2],
+               ['+', 1234],
+               ['-',None]]
         # when
-        sort_func(inp, 0, len(inp) - 1)
+        res = solution(inp)
         # then
-        self.assertEqual(inp, [26, 31, 41, 41, 58, 59])
+        self.assertEqual(res, [10, 1234])
 
-        # given
-        inp = [1, 8, 4, 2, 3, 7, 5, 6, 9, 0]
+        inp = [["+", 1],
+               ['+', 10],
+               ['+', 20],
+               ['-', None],
+               ['-', None],
+               ['-',None]]
         # when
-        sort_func(inp, 0, len(inp) - 1)
+        res = solution(inp)
         # then
-        self.assertEqual(inp, list(range(10)))
+        self.assertEqual(res, [20, 10, 1])
     
     def test_should_fit_time_memory_limit(self):
-        test_data = []
-
-        minimum_inp = list(range(100))
-        test_data.append(('100 элементов', (minimum_inp, 0, len(minimum_inp) - 1)))
-
-        medium_inp = list(range(10**4))
-        shuffle(medium_inp)
-        test_data.append(('10000 элементов', (medium_inp, 0, len(medium_inp) - 1)))
-
-        multi_medium_inp = list(range(10**4)) * 4 # 4 copies of each element
-        shuffle(multi_medium_inp)
-        test_data.append(('4*10e4 элементов (Повторения)', (multi_medium_inp, 0, len(multi_medium_inp) - 1)))
-
-        maximum_inp = [x * 100 for x in range(10**5-1, -1, -1)]
-        test_data.append(('10e5 элементов', (maximum_inp, 0, len(maximum_inp) - 1)))
-        
+        test_data = [('100 элементов', [['+', i] for i in range(5*10)] + [['-', None] for _ in range(5*10)]),
+                     ('10e4 элементов', [['+', i] for i in range(5*10**3)] + [['-', None] for _ in range(5*10**3)]),
+                     ('10e6 элементов', [['+', i] for i in range(5*10**5)] + [['-', None] for _ in range(5*10**5)])]
 
         expected_memory = 256 * MB
         expected_time = 2
@@ -53,12 +49,12 @@ class TestsRandomizedQuickSort(unittest.TestCase):
             for test_id, (test_name, input_by_size) in enumerate(test_data):
 
                 if time_mod:
-                    time_for_tests.append(TM.count_time(sort_func, *input_by_size))
+                    time_for_tests.append(TM.count_time(solution, input_by_size))
 
                 if memory_mod:
 
                     # given
-                    res_memory = TM.count_memory(sort_func, *input_by_size)
+                    res_memory = TM.count_memory(solution, input_by_size)
                     res_time = time_for_tests[test_id]
 
                     # when
