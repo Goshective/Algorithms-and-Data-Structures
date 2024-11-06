@@ -20,9 +20,8 @@ class TestsStack(unittest.TestCase):
                ['+', 1234],
                ['-',None]]
         # when
-        res = solution(inp)
         # then
-        self.assertEqual(res, [10, 1234])
+        self.assertEqual(solution(inp), [10, 1234])
 
         inp = [["+", 1],
                ['+', 10],
@@ -31,9 +30,8 @@ class TestsStack(unittest.TestCase):
                ['-', None],
                ['-',None]]
         # when
-        res = solution(inp)
         # then
-        self.assertEqual(res, [20, 10, 1])
+        self.assertEqual(solution(inp), [20, 10, 1])
     
     def test_should_fit_time_memory_limit(self):
         test_data = [('100 элементов', [['+', i] for i in range(5*10)] + [['-', None] for _ in range(5*10)]),
