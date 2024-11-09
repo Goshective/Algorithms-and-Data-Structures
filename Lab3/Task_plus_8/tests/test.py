@@ -11,21 +11,23 @@ from test_utils import (ConsoleTimeMemory as TM, MB)
 
 
 class TestCasePoints(unittest.TestCase):
-    def test_should_find_k_nearest_points(self):
+    def test_should_find_2_nearest_points(self):
         # given
         inp = [[3, 3], [-2, 4], [5, -1]]
         excepted_res = [[3, 3], [-2, 4]]
         # when
-        res = solution(3, 2, inp)
+        res = solution(len(inp), 2, inp)
         # then
         self.assertEqual(res, excepted_res)
         
     def test_should_return_nothing(self):
         # given
         inp = [[3, 3], [-2, 4], [5, -1]]
+        excepted_res = []
         # when
+        res = solution(len(inp), 0, inp)
         # then
-        self.assertEqual(solution(3, 0, inp), [])
+        self.assertEqual(res, excepted_res)
     
     def check_time_memory_limit(self, res_time, res_memory):
         # given
@@ -37,6 +39,7 @@ class TestCasePoints(unittest.TestCase):
         self.assertLessEqual(res_memory, expected_memory)
     
     def test_should_fit_time_memory_limit(self):
+        # given
         minimum_inp = [[0, i] for i in range(10)]
         medium_inp = [[randint(-100, 100), randint(-100, 100)] for _ in range(10000)]
         maximum_inp = [[randint(-10**4, 10**4), randint(-10**4, 10**4)] for _ in range(10**5)]
@@ -46,7 +49,6 @@ class TestCasePoints(unittest.TestCase):
                      ('10e5 элементов', (10**5, 10**5, maximum_inp))]
 
         for test_name, input_by_size in test_data:
-            # given
             # when
             res_time = TM.count_time(solution, *input_by_size)
             res_memory = TM.count_memory(solution, *input_by_size)

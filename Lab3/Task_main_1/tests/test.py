@@ -11,20 +11,25 @@ from test_utils import (ConsoleTimeMemory as TM, MB)
 
 
 class TestsRandomizedQuickSort(unittest.TestCase):
-    def test_should_sort(self):
+    def test_should_sort_example(self):
         # given
         inp = [31, 41, 59, 26, 41, 58]
+        expected_res = [26, 31, 41, 41, 58, 59]
         # when
         sort_func(inp, 0, len(inp) - 1)
+        res = inp
         # then
-        self.assertEqual(inp, [26, 31, 41, 41, 58, 59])
+        self.assertEqual(res, expected_res)
 
+    def test_should_sort_growing_sequence(self):
         # given
         inp = [1, 8, 4, 2, 3, 7, 5, 6, 9, 0]
+        expected_res = list(range(10))
         # when
         sort_func(inp, 0, len(inp) - 1)
+        res = inp
         # then
-        self.assertEqual(inp, list(range(10)))
+        self.assertEqual(res, expected_res)
 
     def check_time_memory_limit(self, res_time, res_memory):
         # given
@@ -36,6 +41,7 @@ class TestsRandomizedQuickSort(unittest.TestCase):
         self.assertLessEqual(res_memory, expected_memory)
     
     def test_should_fit_time_memory_limit(self):
+        # given
         test_data = []
 
         minimum_inp = list(range(100))
@@ -53,7 +59,6 @@ class TestsRandomizedQuickSort(unittest.TestCase):
         test_data.append(('10e5 элементов', (maximum_inp, 0, len(maximum_inp) - 1)))
 
         for test_name, input_by_size in test_data:
-            # given
             # when
             res_time = TM.count_time(sort_func, *input_by_size)
             res_memory = TM.count_memory(sort_func, *input_by_size)

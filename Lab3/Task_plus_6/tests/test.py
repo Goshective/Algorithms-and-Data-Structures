@@ -17,9 +17,11 @@ class TestCaseMultiArray(unittest.TestCase):
     def test_should_sort(self):
         # given
         a, b = [7, 1, 4, 9], [2, 7, 8, 11]
+        expected_res = 51
         # when
+        res = solution(len(a), len(b), a, b, qsort)
         # then
-        self.assertEqual(solution(4, 4, a, b, qsort), 51)
+        self.assertEqual(res, expected_res)
 
     def check_time_memory_limit(self, res_time, res_memory):
         # given
@@ -32,12 +34,11 @@ class TestCaseMultiArray(unittest.TestCase):
     
     def test_should_fit_time_memory_limit(self):
             for func_name, func in ('\nQuick sort (Python):', qsort), ('\nRadix sort:', radix_sort):
-
+                # given
                 test_data = [(f'{i}^2 элементов', (i, i, list(range(i, 0, -1)), list(range(i, 0, -1)), func)) 
                              for i in (4, 500, 1000)]
 
                 for test_id, (test_name, input_by_size) in enumerate(test_data):
-                    # given
                     # when
                     res_time = TM.count_time(solution, *input_by_size)
                     res_memory = TM.count_memory(solution, *input_by_size)

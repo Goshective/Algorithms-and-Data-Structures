@@ -13,21 +13,29 @@ class TestCaseHirschIndex(unittest.TestCase):
     def test_find_hirsch_index(self):
         # given
         inp = [3,0,6,1,5]
+        expected_res = 3
         # when
+        res = solution(inp)
         # then
-        self.assertEqual(solution(inp), 3)
+        self.assertEqual(res, expected_res)
 
+    def test_should_find_minimum(self):
         # given
         inp = [1,3,1]
+        expected_res = 1
         # when
+        res = solution(inp)
         # then
-        self.assertEqual(solution(inp), 1)
+        self.assertEqual(res, expected_res)
 
+    def test_should_find_maximum(self):
         # given
         inp = [500,500,600]
+        expected_res = 3
         # when
+        res = solution(inp)
         # then
-        self.assertEqual(solution(inp), 3)
+        self.assertEqual(res, expected_res)
 
     def check_time_memory_limit(self, res_time, res_memory):
         # given
@@ -39,6 +47,7 @@ class TestCaseHirschIndex(unittest.TestCase):
         self.assertLessEqual(res_memory, expected_memory)
     
     def test_should_fit_time_memory_limit(self):
+        # given
         minimum_inp = list(range(10))
         medium_inp = [100 - i for i in range(100)]
         maximum_inp = [(5000 - i) // 5 for i in range(5000)]
@@ -48,7 +57,6 @@ class TestCaseHirschIndex(unittest.TestCase):
                      ('5000 элементов', maximum_inp)]
 
         for test_name, input_by_size in test_data:
-            # given
             # when
             res_time = TM.count_time(solution, input_by_size)
             res_memory = TM.count_memory(solution, input_by_size)

@@ -10,7 +10,7 @@ from test_utils import (ConsoleTimeMemory as TM, MB)
 
 
 class TestsMaxStack(unittest.TestCase):
-    def test_should_find_max(self):
+    def test_should_find_constant_max(self):
         # given
         inp = [
         'push 2',
@@ -23,69 +23,63 @@ class TestsMaxStack(unittest.TestCase):
         'max',
         'pop',
         'max']
+        excepted_res = [9, 9, 9, 9]
         # when
+        res = solution(inp)
         # then
-        self.assertEqual(solution(inp), [9, 9, 9, 9])
+        self.assertEqual(res, excepted_res)
 
+    def test_should_find_max_after_pop(self):
         # given
-        inp = ['push 7',
+        inp = ['push 5',
                'push 1',
                'push 7',
                'max',
                'pop',
                'max']
+        excepted_res = [7, 5]
         # when
+        res = solution(inp)
         # then
-        self.assertEqual(solution(inp), [7, 7])
+        self.assertEqual(res, excepted_res)
 
-        # given
-        inp = ['push 1',
-               'push 2',
-               'max',
-               'pop',
-               'max']
-        # when
-        # then
-        self.assertEqual(solution(inp), [2, 1])
-
+    def test_should_find_constant_max_after_pop(self):
         # given
         inp = ['push 2',
                'push 1',
                'max',
                'pop',
                'max']
+        excepted_res = [2, 2]
+        # when
+        res = solution(inp)
+        # then
+        self.assertEqual(res, excepted_res)
+
+    def check_time_memory_limit(self, res_time, res_memory):
+        # given
+        expected_memory = 256 * MB
+        expected_time = 2
         # when
         # then
-        self.assertEqual(solution(inp), [2, 2])
+        self.assertLessEqual(res_time, expected_time)
+        self.assertLessEqual(res_memory, expected_memory)
     
     def test_should_fit_time_memory_limit(self):
+        # given
         test_data = [('100 элементов', [f'push {i}' for i in range(50)] + ['max', 'pop']*25),
                      ('10e4 элементов', [f'push {i}' for i in range(5*10**3)] + ['max', 'pop']*25*10**2),
                      ('4*10e5 элементов', [f'push {i}' for i in range(2*10**5)] + ['max', 'pop']*10**5)]
 
-        expected_memory = 512 * MB
-        expected_time = 5
+        for test_name, input_by_size in test_data:
+            # when
+            res_time = TM.count_time(solution, input_by_size)
+            res_memory = TM.count_memory(solution, input_by_size)
 
-        time_for_tests = []
+            TM.output_design(test_name, res_time, res_memory)
 
-        for time_mod, memory_mod in ((1, 0), (0, 1)):
-            for test_id, (test_name, input_by_size) in enumerate(test_data):
-
-                if time_mod:
-                    time_for_tests.append(TM.count_time(solution, input_by_size))
-
-                if memory_mod:
-
-                    # given
-                    res_memory = TM.count_memory(solution, input_by_size)
-                    res_time = time_for_tests[test_id]
-
-                    # when
-                    TM.output_design(test_name, res_time, res_memory)
-
-                    # then
-                    self.assertLessEqual(res_time, expected_time)
-                    self.assertLessEqual(res_memory, expected_memory)
+            # then
+            self.check_time_memory_limit(res_time, res_memory)
 
 
 if __name__ == "__main__":

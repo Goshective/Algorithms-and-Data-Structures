@@ -13,21 +13,20 @@ class TestCaseSegments(unittest.TestCase):
     def test_should_find_intersections(self):
         # given
         inp = [[0, 5], [7, 10]], [1, 6, 11]
+        expected_res = [1, 0, 0]
         # when
+        res = solution(len(inp[0]), len(inp[1]), *inp)
         # then
-        self.assertEqual(solution(2, 3, *inp), [1, 0, 0])
+        self.assertEqual(res, expected_res)
 
+    def test_should_find_distant_edges(self):
         # given
         inp = [[-10, 10]], [-100, 100, 0]
+        expected_res = [0, 0, 1]
         # when
+        res = solution(len(inp[0]), len(inp[1]), *inp)
         # then
-        self.assertEqual(solution(1, 3, *inp), [0, 0, 1])
-
-        # given
-        inp = [[0, 5], [-3, 2], [7, 10]], [1, 6]
-        # when
-        # then
-        self.assertEqual(solution(3, 2, *inp), [2, 0])
+        self.assertEqual(res, expected_res)
 
     def check_time_memory_limit(self, res_time, res_memory):
         # given
@@ -39,6 +38,7 @@ class TestCaseSegments(unittest.TestCase):
         self.assertLessEqual(res_memory, expected_memory)
     
     def test_should_fit_time_memory_limit(self):
+        # given
         test_data = []
 
         minimum_inp = [[0, 5], [7, 10]]
@@ -51,7 +51,6 @@ class TestCaseSegments(unittest.TestCase):
         test_data.append(('5*10e4 элементов', (50000, 50000, maximum_inp, list(range(50000)))))
 
         for test_name, input_by_size in test_data:
-            # given
             # when
             res_time = TM.count_time(solution, *input_by_size)
             res_memory = TM.count_memory(solution, *input_by_size)

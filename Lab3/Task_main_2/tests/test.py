@@ -10,24 +10,31 @@ from test_utils import (ConsoleTimeMemory as TM, MB)
 
 
 class TestCaseSegments(unittest.TestCase):
-    def test_shold_find__the_worst_case(self):
+    def test_shold_find_the_worst_case(self):
         # given
-        inp = 3
-        # when
-        # then
-        self.assertEqual(solution(inp), [1, 3, 2])
+        inp_3 = 3
+        expected_res_3 = [1, 3, 2]
 
-        # given
-        inp = 4
-        # when
-        # then
-        self.assertEqual(solution(inp), [1, 4, 2, 3])
+        inp_4 = 4
+        expected_res_4 = [1, 4, 2, 3]
 
-        # given
-        inp = 5
+        inp_5 = 5
+        expected_res_5 = [1, 4, 5, 3, 2]
+
+        expected_res = [expected_res_3, 
+                        expected_res_4,
+                        expected_res_5]
         # when
+        res_3 = solution(inp_3)
+
+        res_4 = solution(inp_4)
+
+        res_5 = solution(inp_5)
+
+        res = [res_3, res_4, res_5]
+        
         # then
-        self.assertEqual(solution(inp), [1, 4, 5, 3, 2])
+        self.assertEqual(res, expected_res)
         
     def check_time_memory_limit(self, res_time, res_memory):
         # given
@@ -39,12 +46,12 @@ class TestCaseSegments(unittest.TestCase):
         self.assertLessEqual(res_memory, expected_memory)
     
     def test_should_fit_time_memory_limit(self):
+        # given
         test_data = (('10 элементов', 10), 
                      ('1000 элементов', 1000), 
                      ('10e6 элементов', 10**6))
 
         for test_name, input_by_size in test_data:
-            # given
             # when
             res_time = TM.count_time(solution, input_by_size)
             res_memory = TM.count_memory(solution, input_by_size)
