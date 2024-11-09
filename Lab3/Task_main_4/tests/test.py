@@ -28,6 +28,15 @@ class TestCaseSegments(unittest.TestCase):
         # when
         # then
         self.assertEqual(solution(3, 2, *inp), [2, 0])
+
+    def check_time_memory_limit(self, res_time, res_memory):
+        # given
+        expected_memory = 256 * MB
+        expected_time = 2
+        # when
+        # then
+        self.assertLessEqual(res_time, expected_time)
+        self.assertLessEqual(res_memory, expected_memory)
     
     def test_should_fit_time_memory_limit(self):
         test_data = []
@@ -41,29 +50,16 @@ class TestCaseSegments(unittest.TestCase):
         maximum_inp = [[2*i, 2*i+1] for i in range(50000)]
         test_data.append(('5*10e4 элементов', (50000, 50000, maximum_inp, list(range(50000)))))
 
-        expected_memory = 256 * MB
-        expected_time = 2
+        for test_name, input_by_size in test_data:
+            # given
+            # when
+            res_time = TM.count_time(solution, *input_by_size)
+            res_memory = TM.count_memory(solution, *input_by_size)
 
-        time_for_tests = []
+            TM.output_design(test_name, res_time, res_memory)
 
-        for time_mod, memory_mod in ((1, 0), (0, 1)):
-            for test_id, (test_name, input_by_size) in enumerate(test_data):
-
-                if time_mod:
-                    time_for_tests.append(TM.count_time(solution, *input_by_size))
-
-                if memory_mod:
-
-                    # given
-                    res_memory = TM.count_memory(solution, *input_by_size)
-                    res_time = time_for_tests[test_id]
-
-                    # when
-                    TM.output_design(test_name, res_time, res_memory)
-
-                    # then
-                    self.assertLessEqual(res_time, expected_time)
-                    self.assertLessEqual(res_memory, expected_memory)
+            # then
+            self.check_time_memory_limit(res_time, res_memory)
 
 
 if __name__ == "__main__":

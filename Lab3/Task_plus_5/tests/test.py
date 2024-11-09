@@ -28,6 +28,15 @@ class TestCaseHirschIndex(unittest.TestCase):
         # when
         # then
         self.assertEqual(solution(inp), 3)
+
+    def check_time_memory_limit(self, res_time, res_memory):
+        # given
+        expected_memory = 256 * MB
+        expected_time = 2
+        # when
+        # then
+        self.assertLessEqual(res_time, expected_time)
+        self.assertLessEqual(res_memory, expected_memory)
     
     def test_should_fit_time_memory_limit(self):
         minimum_inp = list(range(10))
@@ -37,30 +46,17 @@ class TestCaseHirschIndex(unittest.TestCase):
         test_data = [('10 элементов', minimum_inp),
                      ('100 элементов', medium_inp),
                      ('5000 элементов', maximum_inp)]
-        
-        expected_memory = 256 * MB
-        expected_time = 2
 
-        time_for_tests = []
+        for test_name, input_by_size in test_data:
+            # given
+            # when
+            res_time = TM.count_time(solution, input_by_size)
+            res_memory = TM.count_memory(solution, input_by_size)
 
-        for time_mod, memory_mod in ((1, 0), (0, 1)):
-            for test_id, (test_name, input_by_size) in enumerate(test_data):
+            TM.output_design(test_name, res_time, res_memory)
 
-                if time_mod:
-                    time_for_tests.append(TM.count_time(solution, input_by_size))
-
-                if memory_mod:
-
-                    # given
-                    res_memory = TM.count_memory(solution, input_by_size)
-                    res_time = time_for_tests[test_id]
-
-                    # when
-                    TM.output_design(test_name, res_time, res_memory)
-
-                    # then
-                    self.assertLessEqual(res_time, expected_time)
-                    self.assertLessEqual(res_memory, expected_memory)
+            # then
+            self.check_time_memory_limit(res_time, res_memory)
 
 
 if __name__ == "__main__":
