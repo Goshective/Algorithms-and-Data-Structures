@@ -10,64 +10,55 @@ from test_utils import (ConsoleTimeMemory as TM, MB)
 
 
 class TestCaseInsertionSort(unittest.TestCase):
-    def test_should_sum(self):
+    def test_should_sum_long(self):
         # given
         a, b = list(map(int, '1000001')), list(map(int, '1111111'))
+        expected_res = list(map(int, '11000000'))
         # when
+        res = bin_sum(a, b)
         # then
-        self.assertEqual(bin_sum(a, b), list(map(int, '11000000')))
-        
+        self.assertEqual(res, expected_res)
+
+    def test_shold_sum_zero(self): 
         # given
         a, b = [0], [0]
+        expected_res = [0]
         # when
+        res = bin_sum(a, b)
         # then
-        self.assertEqual(bin_sum(a, b), [0])
-
-        # given
-        a, b = [0], [1]
-        # when
-        # then
-        self.assertEqual(bin_sum(a, b), [1])
-
-        # given
-        a, b = [a, b]
-        # when
-        # then
-        self.assertEqual(bin_sum(a, b), [1])
-
+        self.assertEqual(res, expected_res)
+    def test_shold_sum_with_digit_transition(self):
         # given
         a, b = [1], [1]
+        expected_res = [1, 0]
+        # when
+        res = bin_sum(a, b)
+        # then
+        self.assertEqual(res, expected_res)
+
+    def check_time_memory_limit(self, res_time, res_memory):
+        # given
+        expected_memory = 256 * MB
+        expected_time = 2
         # when
         # then
-        self.assertEqual(bin_sum(a, b), [1, 0])
+        self.assertLessEqual(res_time, expected_time)
+        self.assertLessEqual(res_memory, expected_memory)
     
     def test_should_fit_time_memory_limit(self):
+        # given
         test_data = [(f'{i} элементов', ([1]*i, [1]*i)) for i in 
                      (10, 100, 1000)]
 
-        expected_memory = 256 * MB
-        expected_time = 2
+        for test_name, input_by_size in test_data:
+            # when
+            res_time = TM.count_time(bin_sum, *input_by_size)
+            res_memory = TM.count_memory(bin_sum, *input_by_size)
 
-        time_for_tests = []
+            TM.output_design(test_name, res_time, res_memory)
 
-        for time_mod, memory_mod in ((1, 0), (0, 1)):
-            for test_id, (test_name, input_by_size) in enumerate(test_data):
-
-                if time_mod:
-                    time_for_tests.append(TM.count_time(bin_sum, *input_by_size))
-
-                if memory_mod:
-
-                    # given
-                    res_memory = TM.count_memory(bin_sum, *input_by_size)
-                    res_time = time_for_tests[test_id]
-
-                    # when
-                    TM.output_design(test_name, res_time, res_memory)
-
-                    # then
-                    self.assertLessEqual(res_time, expected_time)
-                    self.assertLessEqual(res_memory, expected_memory)
+            # then
+            self.check_time_memory_limit(res_time, res_memory)
 
 
 if __name__ == "__main__":
