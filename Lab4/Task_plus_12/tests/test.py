@@ -46,9 +46,14 @@ class TestsLinkedDict(unittest.TestCase):
     
     def test_should_fit_time_memory_limit(self):
         # given
-        test_data = [(f'{k} элементов', (k, [f'left {i} {i+2}' for i in range(1, k//4 - 1, 2)] + [f'right {i} {i-1}' for i in range(2, k//4, 2)] + 
-                                         [f'name {i}' for i in range(1, k//4)] + [f'leave {i}' for i in range(1, k//4)]))
-                     for k in (100, 1000, 75000)]
+        test_data = []
+        for k in (100, 1000, 75000):
+            commands_list = [f'left {i} {i+2}' for i in range(1, k//4 - 1, 2)]
+            commands_list += [f'right {i} {i-1}' for i in range(2, k//4, 2)]
+            for i in range(1, k//4):
+                commands_list += [f'name {i}'] + [f'leave {i}']
+            
+            test_data.append((f'{k} элементов', (k, commands_list)))
 
         for test_name, input_by_size in test_data:
             # when
