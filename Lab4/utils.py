@@ -17,11 +17,12 @@ def read_lst_file(path, func, sep=" "):
     return lst
 
 
-def read_len_lst_file(path, func):
+def read_n_lst_k(path, func=int):
     with open(path, 'r') as inp:
         n = int(inp.readline()) 
         lst = [func(i) for i in inp.readline().split()]
-    return n, lst
+        k = int(inp.readline())
+    return n, lst, k
 
 
 def read_commands(path):
@@ -32,13 +33,21 @@ def read_commands(path):
             ret.append(inp.readline().rstrip())
     return ret
 
+def read_commands_n_m(path):
+    with open(path, 'r') as inp:
+        n, m = map(int, inp.readline().rstrip().split())
+        ret = []
+        for _ in range(m):
+            ret.append(inp.readline().rstrip())
+    return n, ret
+
 
 def write_lst_file(path, lst, sep=" "):
     with open(path, 'w') as out:
         print(*lst, file=out, sep=sep, end='')
 
 
-def write_lst_by_lines_file(path, lst):
+def write_lst_by_lines_file(path, lst, sep=' '):
     with open(path, 'w') as out:
         for el in lst:
-            print(el, file=out)
+            print(*el, file=out, sep=sep)
