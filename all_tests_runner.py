@@ -9,8 +9,8 @@ LABS_NAMES = [f'Lab{i}' for i in range(1, 9)]
 
 
 def run_tests(labs_names=LABS_NAMES):
-    tasks_names = [f"Task_main_{i}" for i in range(1, 11)] + \
-                  [f"Task_plus_{i}" for i in range(1, 11)]
+    tasks_names = [f"Task_main_{i}" for i in range(1, 21)] + \
+                  [f"Task_plus_{i}" for i in range(1, 21)]
     # Collect all test files
     test_loader = unittest.TestLoader()
     test_suite = unittest.TestSuite()
