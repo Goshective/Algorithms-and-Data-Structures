@@ -1,5 +1,5 @@
-# Задание №1 по выбору : `Тема`
-Студент(ка) ИТМО,  Скворцов Денис Александрович, 472486
+# Задание №1 по варианту : `Улучшение Quick sort`
+Студент ИТМО,  Скворцов Денис Александрович, 472486
 
 ## Вариант 15
 
@@ -10,9 +10,8 @@
 
 | Input    | Output |
 |----------|----------|
-| Row 1    | Cell 2   |
-| Row 2    | Cell 5   |
-| Row 3    | Cell 8   |
+| 5        | 2 2 2 3 9|
+| 2 3 9 2 2|
 
 ## Ограничения по времени и памяти
 
@@ -23,25 +22,25 @@
 ## Запуск проекта
 1. Клонируйте репозиторий:
    ```bash
-   git clone https://github.com/username/repository-name.git
+   git clone https://github.com/Goshective/Algorithms-and-Data-Structures
    ```
 2. Перейдите в папку с проектом:
    ```bash
-   cd repository-name/lab1
-   ```
-3. Запустите программу:
-   ```bash
-   python src/main.py
+   cd Algorithms-and-Data-Structures/Lab3/Task_main_1
    ```
 
-4. Запуск тестов:
-   ```bash
-   python src/main.py
-   ```
+3. Запустите программу
+    ```bash
+        python src/main.py
+    ```
 
+4. Запуск тестов
+    ```bash
+        python tests/test.py
+    ```
 
 ## Тестирование
-Для запуска тестов выполните:
+Для запуска всех тестов выполните:
 ```bash
-    pytest tests/
+    python tests_runner.py
 ```
