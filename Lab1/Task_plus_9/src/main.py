@@ -24,11 +24,11 @@ def bin_sum(a, b):
     return ret[::-1]
 
 def main():
-    a, b = read_file(os.path.join(PATH, 'input.txt'), 
+    a, b = read_file(os.path.join(PATH, 'txtf', 'input.txt'), 
                        lambda line: [[int(x) for x in st] for st in line.split()]
                        )[0]
     res = bin_sum(a, b)
-    write_lst_file(os.path.join(PATH, 'output.txt'), res, sep='')
+    write_lst_file(os.path.join(PATH, 'txtf', 'output.txt'), res, sep='')
 
 
 if __name__ == "__main__":

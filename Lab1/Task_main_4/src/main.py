@@ -22,9 +22,9 @@ def main():
             print(-1, file=out, end='')
 
 def main():
-    lst, v = read_lst_value_file(os.path.join(PATH, 'input.txt'), int)
+    lst, v = read_lst_value_file(os.path.join(PATH, 'txtf', 'input.txt'), int)
     res = linear_search(lst, v)
-    out_path = os.path.join(PATH, 'output.txt')
+    out_path = os.path.join(PATH, 'txtf', 'output.txt')
     if res:
         write_line_lst_line_file(out_path, len(res), res, sep=', ')
     else:

@@ -21,9 +21,9 @@ def insertion_sort(n, lst):
     return
 
 def main():
-    n, lst = read_len_lst_file(os.path.join(PATH, 'input.txt'), int)
+    n, lst = read_len_lst_file(os.path.join(PATH, 'txtf', 'input.txt'), int)
     insertion_sort(n, lst)
-    write_lst_file(os.path.join(PATH, 'output.txt'), lst)
+    write_lst_file(os.path.join(PATH, 'txtf', 'output.txt'), lst)
 
 
 if __name__ == "__main__":

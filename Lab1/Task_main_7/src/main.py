@@ -25,8 +25,8 @@ def find_info(n, lst):
     return mini+1, mid+1, maxi+1
 
 def main():
-    n, lst = read_len_lst_file(os.path.join(PATH, 'input.txt'), int)
-    write_lst_file(os.path.join(PATH, 'output.txt'), find_info(n, lst))
+    n, lst = read_len_lst_file(os.path.join(PATH, 'txtf', 'input.txt'), int)
+    write_lst_file(os.path.join(PATH, 'txtf', 'output.txt'), find_info(n, lst))
 
 
 if __name__ == "__main__":
