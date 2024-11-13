@@ -43,9 +43,9 @@
    cd Algorithms-and-Data-Structures/Lab1
    ```
 
-3. **Запуску всех лабараторных**
+3. **Запуску всех лабораторных**
     ```bash
-        команда
+        python all_tasks_runner.py
     ```
 
 4. **Запуску всех тестов**
