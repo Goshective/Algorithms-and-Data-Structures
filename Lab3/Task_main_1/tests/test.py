@@ -15,9 +15,11 @@ class TestsRandomizedQuickSort(unittest.TestCase):
         # given
         inp = [31, 41, 59, 26, 41, 58]
         expected_res = [26, 31, 41, 41, 58, 59]
+
         # when
         sort_func(inp, 0, len(inp) - 1)
         res = inp
+
         # then
         self.assertEqual(res, expected_res)
 
@@ -25,9 +27,11 @@ class TestsRandomizedQuickSort(unittest.TestCase):
         # given
         inp = [1, 8, 4, 2, 3, 7, 5, 6, 9, 0]
         expected_res = list(range(10))
+
         # when
         sort_func(inp, 0, len(inp) - 1)
         res = inp
+
         # then
         self.assertEqual(res, expected_res)
 
@@ -35,6 +39,7 @@ class TestsRandomizedQuickSort(unittest.TestCase):
         # given
         expected_memory = 256 * MB
         expected_time = 2
+        
         # when
         # then
         self.assertLessEqual(res_time, expected_time)

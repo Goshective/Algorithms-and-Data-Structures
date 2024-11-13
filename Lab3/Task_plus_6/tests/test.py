@@ -18,8 +18,10 @@ class TestCaseMultiArray(unittest.TestCase):
         # given
         a, b = [7, 1, 4, 9], [2, 7, 8, 11]
         expected_res = 51
+
         # when
         res = solution(len(a), len(b), a, b, qsort)
+        
         # then
         self.assertEqual(res, expected_res)
 

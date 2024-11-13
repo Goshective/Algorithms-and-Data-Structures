@@ -14,8 +14,10 @@ class TestsBrackets(unittest.TestCase):
         # given
         inp = '{'
         excepted_res = 1
+
         # when
         res = solution(inp)
+
         # then
         self.assertEqual(res, excepted_res)
 
@@ -23,8 +25,10 @@ class TestsBrackets(unittest.TestCase):
         # given
         inp = '{[}'
         excepted_res = 3
+
         # when
         res = solution(inp)
+
         # then
         self.assertEqual(res, excepted_res)
 
@@ -32,8 +36,10 @@ class TestsBrackets(unittest.TestCase):
         # given
         inp = 'foo(bar[i);'
         excepted_res = 10
+
         # when
         res = solution(inp)
+
         # then
         self.assertEqual(res, excepted_res)
 
@@ -41,8 +47,10 @@ class TestsBrackets(unittest.TestCase):
         # given
         inp = '[]'
         excepted_res = 'Success'
+
         # when
         res = solution(inp)
+
         # then
         self.assertEqual(res, excepted_res)
 
@@ -50,8 +58,10 @@ class TestsBrackets(unittest.TestCase):
         # given
         inp = '{}[]'
         excepted_res = 'Success'
+
         # when
         res = solution(inp)
+
         # then
         self.assertEqual(res, excepted_res)
 
@@ -59,8 +69,10 @@ class TestsBrackets(unittest.TestCase):
         # given
         inp = '[()]'
         excepted_res = 'Success'
+
         # when
         res = solution(inp)
+
         # then
         self.assertEqual(res, excepted_res)
 
@@ -68,8 +80,10 @@ class TestsBrackets(unittest.TestCase):
         # given
         inp = 'foo(bar);'
         excepted_res = 'Success'
+
         # when
         res = solution(inp)
+
         # then
         self.assertEqual(res, excepted_res)
 
@@ -79,6 +93,7 @@ class TestsBrackets(unittest.TestCase):
         expected_time = 2
         # when
         # then
+        
         self.assertLessEqual(res_time, expected_time)
         self.assertLessEqual(res_memory, expected_memory)
     

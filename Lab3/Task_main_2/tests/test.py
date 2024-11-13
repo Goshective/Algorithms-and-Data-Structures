@@ -24,6 +24,7 @@ class TestCaseSegments(unittest.TestCase):
         expected_res = [expected_res_3, 
                         expected_res_4,
                         expected_res_5]
+        
         # when
         res_3 = solution(inp_3)
 
@@ -40,6 +41,7 @@ class TestCaseSegments(unittest.TestCase):
         # given
         expected_memory = 256 * MB
         expected_time = 2
+        
         # when
         # then
         self.assertLessEqual(res_time, expected_time)

@@ -19,8 +19,10 @@ class TestsStack(unittest.TestCase):
                '+ 1234',
                '-']
         excepted_res = [10, 1234]
+
         # when
         res = solution(inp)
+
         # then
         self.assertEqual(res, excepted_res)
 
@@ -33,8 +35,10 @@ class TestsStack(unittest.TestCase):
                '-',
                '-']
         excepted_res = [20, 10, 1]
+
         # when
         res = solution(inp)
+
         # then
         self.assertEqual(res, excepted_res)
 
@@ -44,6 +48,7 @@ class TestsStack(unittest.TestCase):
         expected_time = 2
         # when
         # then
+        
         self.assertLessEqual(res_time, expected_time)
         self.assertLessEqual(res_memory, expected_memory)
     

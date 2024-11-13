@@ -21,8 +21,10 @@ class TestsQueueMid(unittest.TestCase):
                '-',
                '-']
         excepted_res = [1, 2, 3]
+
         # when
         res = solution(inp)
+
         # then
         self.assertEqual(res, excepted_res)
 
@@ -40,8 +42,10 @@ class TestsQueueMid(unittest.TestCase):
                '-',
                '-']
         excepted_res = [1, 3, 2, 5, 4]
+
         # when
         res = solution(inp)
+
         # then
         self.assertEqual(res, excepted_res)
 
@@ -61,8 +65,10 @@ class TestsQueueMid(unittest.TestCase):
                '+ 4',
                '-']
         excepted_res = [1, 2, 4, 3, 4, 4]
+
         # when
         res = solution(inp)
+
         # then
         self.assertEqual(res, excepted_res)
 
@@ -72,6 +78,7 @@ class TestsQueueMid(unittest.TestCase):
         expected_time = 2
         # when
         # then
+        
         self.assertLessEqual(res_time, expected_time)
         self.assertLessEqual(res_memory, expected_memory)
     

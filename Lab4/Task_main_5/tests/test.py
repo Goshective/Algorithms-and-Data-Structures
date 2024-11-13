@@ -24,8 +24,10 @@ class TestsMaxStack(unittest.TestCase):
         'pop',
         'max']
         excepted_res = [9, 9, 9, 9]
+
         # when
         res = solution(inp)
+
         # then
         self.assertEqual(res, excepted_res)
 
@@ -38,8 +40,10 @@ class TestsMaxStack(unittest.TestCase):
                'pop',
                'max']
         excepted_res = [7, 5]
+
         # when
         res = solution(inp)
+
         # then
         self.assertEqual(res, excepted_res)
 
@@ -51,8 +55,10 @@ class TestsMaxStack(unittest.TestCase):
                'pop',
                'max']
         excepted_res = [2, 2]
+
         # when
         res = solution(inp)
+
         # then
         self.assertEqual(res, excepted_res)
 
@@ -62,6 +68,7 @@ class TestsMaxStack(unittest.TestCase):
         expected_time = 2
         # when
         # then
+        
         self.assertLessEqual(res_time, expected_time)
         self.assertLessEqual(res_memory, expected_memory)
     

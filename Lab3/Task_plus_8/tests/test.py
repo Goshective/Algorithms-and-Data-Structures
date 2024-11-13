@@ -15,8 +15,10 @@ class TestCasePoints(unittest.TestCase):
         # given
         inp = [[3, 3], [-2, 4], [5, -1]]
         excepted_res = [[3, 3], [-2, 4]]
+
         # when
         res = solution(len(inp), 2, inp)
+
         # then
         self.assertEqual(res, excepted_res)
         
@@ -24,8 +26,10 @@ class TestCasePoints(unittest.TestCase):
         # given
         inp = [[3, 3], [-2, 4], [5, -1]]
         excepted_res = []
+
         # when
         res = solution(len(inp), 0, inp)
+        
         # then
         self.assertEqual(res, excepted_res)
     

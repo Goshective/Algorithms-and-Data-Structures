@@ -17,8 +17,10 @@ class TestsLinkedDict(unittest.TestCase):
             'right 3 1',
             'name 1']
         excepted_res = [[2, 3]]
+
         # when
         res = solution(*inp)
+
         # then
         self.assertEqual(res, excepted_res)
 
@@ -30,8 +32,10 @@ class TestsLinkedDict(unittest.TestCase):
             'right 3 1',
             'name 1']
         excepted_res = [[0, 3]]
+
         # when
         res = solution(*inp)
+
         # then
         self.assertEqual(res, excepted_res)
 
@@ -41,6 +45,7 @@ class TestsLinkedDict(unittest.TestCase):
         expected_time = 2
         # when
         # then
+        
         self.assertLessEqual(res_time, expected_time)
         self.assertLessEqual(res_memory, expected_memory)
     

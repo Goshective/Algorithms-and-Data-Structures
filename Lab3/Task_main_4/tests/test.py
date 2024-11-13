@@ -14,8 +14,10 @@ class TestCaseSegments(unittest.TestCase):
         # given
         inp = [[0, 5], [7, 10]], [1, 6, 11]
         expected_res = [1, 0, 0]
+
         # when
         res = solution(len(inp[0]), len(inp[1]), *inp)
+
         # then
         self.assertEqual(res, expected_res)
 
@@ -23,8 +25,10 @@ class TestCaseSegments(unittest.TestCase):
         # given
         inp = [[-10, 10]], [-100, 100, 0]
         expected_res = [0, 0, 1]
+
         # when
         res = solution(len(inp[0]), len(inp[1]), *inp)
+        
         # then
         self.assertEqual(res, expected_res)
 

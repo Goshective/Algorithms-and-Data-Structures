@@ -14,8 +14,10 @@ class TestCaseHirschIndex(unittest.TestCase):
         # given
         inp = [3,0,6,1,5]
         expected_res = 3
+
         # when
         res = solution(inp)
+
         # then
         self.assertEqual(res, expected_res)
 
@@ -23,8 +25,10 @@ class TestCaseHirschIndex(unittest.TestCase):
         # given
         inp = [1,3,1]
         expected_res = 1
+
         # when
         res = solution(inp)
+        
         # then
         self.assertEqual(res, expected_res)
 

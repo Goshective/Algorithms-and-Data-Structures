@@ -14,8 +14,10 @@ class TestsQueueMax(unittest.TestCase):
         # given
         inp = 8, [2, 7, 3, 1, 5, 2, 6, 2], 4
         excepted_res = [7, 7, 5, 6, 6]
+
         # when
         res = solution(*inp)
+
         # then
         self.assertEqual(res, excepted_res)
 
@@ -23,8 +25,10 @@ class TestsQueueMax(unittest.TestCase):
         # given
         inp = 8, [2, 7, 3, 1, 5, 2, 6, 2], 1
         excepted_res = [2, 7, 3, 1, 5, 2, 6, 2]
+
         # when
         res = solution(*inp)
+
         # then
         self.assertEqual(res, excepted_res)
 
@@ -34,6 +38,7 @@ class TestsQueueMax(unittest.TestCase):
         expected_time = 5
         # when
         # then
+        
         self.assertLessEqual(res_time, expected_time)
         self.assertLessEqual(res_memory, expected_memory)
     
