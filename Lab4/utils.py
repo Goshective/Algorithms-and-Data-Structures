@@ -50,4 +50,10 @@ def write_lst_file(path, lst, sep=" "):
 def write_lst_by_lines_file(path, lst, sep=' '):
     with open(path, 'w') as out:
         for el in lst:
-            print(*el, file=out, sep=sep)
+            print(el, file=out, sep=sep)
+
+
+def write_mat_by_lines_file(path, mat, sep=' '):
+    with open(path, 'w') as out:
+        for lst in mat:
+            print(*lst, file=out, sep=sep)

@@ -6,7 +6,7 @@ LEFT = 0
 RIGHT = 1
 sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
 
-from Lab4.utils import read_commands_n_m, write_lst_by_lines_file
+from Lab4.utils import read_commands_n_m, write_mat_by_lines_file
 
 
 class Node:
@@ -89,7 +89,7 @@ def solution(n, commands):
 def main():
     n, commands = read_commands_n_m(os.path.join(PATH, 'txtf', 'input.txt'))
     res = solution(n, commands)
-    write_lst_by_lines_file(os.path.join(PATH, 'txtf', 'output.txt'), res)
+    write_mat_by_lines_file(os.path.join(PATH, 'txtf', 'output.txt'), res)
 
 
 if __name__ == "__main__":
