@@ -39,12 +39,14 @@ def run_tasks(labs_names=LABS_NAMES):
 
         if os.path.exists(lab_path):
             for file in glob.iglob(f"{lab_name}/*/src/main.py"):
+
+                os.system("python " + file)
+
                 task_num, table_inp_out = parse_info_from_folder(file)
                 print()
                 print(f"{lab_name}. Task {task_num}")
                 print()
                 print(table_inp_out)
-                os.system("python " + file)
 
 if __name__ == '__main__':
     run_tasks()
