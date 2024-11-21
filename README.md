@@ -5,12 +5,12 @@
 
 ### Навигация
 
-- [**Лабораторная №0. Введение**](https://github.com/Goshective/Algorithms-and-Data-Structures/tree/main/Lab0)
-- [**Лабораторная №1. Сортировка вставками, выбором, пузырьковая**](https://github.com/Goshective/Algorithms-and-Data-Structures/tree/main/Lab1)
-- [**Лабораторная №2. Сотировка выбором. Метод декомпозиции**](https://github.com/Goshective/Algorithms-and-Data-Structures/tree/main/Lab2)
-- [**Лабораторная №3. Быстрая сотировка, сортировка за линейное время**](https://github.com/Goshective/Algorithms-and-Data-Structures/tree/main/Lab3)
-- [**Лабораторная №4. Стек, очередь, связанный список.**](https://github.com/Goshective/Algorithms-and-Data-Structures/tree/main/Lab4)
-- [**Лабораторная №5. Деревья. Пирамида, пирамидальная сортировка. Очередь с приоритетами.**](https://github.com/Goshective/Algorithms-and-Data-Structures/tree/main/Lab5)
+- [**Лабораторная №0. Введение**](Lab0)
+- [**Лабораторная №1. Сортировка вставками, выбором, пузырьковая**](Lab1)
+- [**Лабораторная №2. Сотировка выбором. Метод декомпозиции**](Lab2)
+- [**Лабораторная №3. Быстрая сотировка, сортировка за линейное время**](Lab3)
+- [**Лабораторная №4. Стек, очередь, связанный список.**](Lab4)
+- [**Лабораторная №5. Деревья. Пирамида, пирамидальная сортировка. Очередь с приоритетами.**](Lab5)
 
 ### Описание 
 Лабораторные работы за 1 семестр
