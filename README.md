@@ -10,6 +10,7 @@
 - [**Лабораторная №2. Сотировка выбором. Метод декомпозиции**](https://github.com/Goshective/Algorithms-and-Data-Structures/tree/main/Lab2)
 - [**Лабораторная №3. Быстрая сотировка, сортировка за линейное время**](https://github.com/Goshective/Algorithms-and-Data-Structures/tree/main/Lab3)
 - [**Лабораторная №4. Стек, очередь, связанный список.**](https://github.com/Goshective/Algorithms-and-Data-Structures/tree/main/Lab4)
+- [**Лабораторная №5. Деревья. Пирамида, пирамидальная сортировка. Очередь с приоритетами.**](https://github.com/Goshective/Algorithms-and-Data-Structures/tree/main/Lab5)
 
 ### Описание 
 Лабораторные работы за 1 семестр
