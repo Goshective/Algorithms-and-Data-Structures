@@ -105,7 +105,7 @@ class TestsPackages(unittest.TestCase):
     def test_should_check_filling_the_buffer(self):
         # given
         inp = (3, 
-               ['0 1',
+               ['0 2',
                '1 2',
                '2 2',
                '3 2',
@@ -131,9 +131,9 @@ class TestsPackages(unittest.TestCase):
     
     def test_should_fit_time_memory_limit(self):
         # given
-        test_data = [('100 элементов', (25, [f'{20*i} {21*i}' for i in range(100)])),
-                     ('10e3 элементов', (250, [f'{20*i} {21*i}' for i in range(10**3)])),
-                     ('10e5 элементов', (25*10**4, [f'{20*i} {21*i}' for i in range(10**5)])),]
+        test_data = [('100 элементов', (25, [f'{4*i} {int(i/2)*9}' for i in range(100)])),
+                     ('10e3 элементов', (250, [f'{20*i} {int(i/2)*9}' for i in range(10**3)])),
+                     ('10e5 элементов', (25*10**4, [f'{20*i} {int(i/2)*9}' for i in range(10**5)]))]
 
         for test_name, input_by_size in test_data:
             # when
