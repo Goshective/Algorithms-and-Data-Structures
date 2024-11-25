@@ -24,14 +24,6 @@ def read_n_lst(path, func=int):
     return n, lst
 
 
-def read_commands(path):
-    with open(path, 'r') as inp:
-        n = int(inp.readline())
-        ret = []
-        for _ in range(n):
-            ret.append(inp.readline().rstrip())
-    return ret
-
 def read_commands_s_n(path):
     with open(path, 'r') as inp:
         s, n = map(int, inp.readline().rstrip().split())
