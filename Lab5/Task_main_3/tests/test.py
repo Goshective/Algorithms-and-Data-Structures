@@ -12,105 +12,109 @@ from test_utils import (ConsoleTimeMemory as TM, MB)
 class TestsPackages(unittest.TestCase):
     def test_should_check_empty(self):
         # given
-        inp = ['1 0']
+        inp = 1, []
         excepted_res = []
 
         # when
-        res = solution(inp)
+        res = solution(*inp)
 
         # then
         self.assertEqual(res, excepted_res)
 
     def test_should_execute_1(self):
         # given
-        inp = ['1 1',
-               '0 0']
+        inp = 1, ['0 0']
         excepted_res = [0]
 
         # when
-        res = solution(inp)
+        res = solution(*inp)
 
         # then
         self.assertEqual(res, excepted_res)
 
     def test_should_check_buffer(self):
         # given
-        inp = ['1 2',
-               '0 1',
-               '0 1']
+        inp = (1, 
+               ['0 1',
+                '0 1']
+                   )
         excepted_res = [0, -1]
 
         # when
-        res = solution(inp)
+        res = solution(*inp)
 
         # then
         self.assertEqual(res, excepted_res)
 
     def test_should_execute_and_receive(self):
         # given
-        inp = ['1 2',
-               '0 1',
-               '1 1']
+        inp = (1, 
+               ['0 1',
+                '1 1']
+                   )
         excepted_res = [0, 1]
 
         # when
-        res = solution(inp)
+        res = solution(*inp)
 
         # then
         self.assertEqual(res, excepted_res)
 
     def test_should_return_start_time(self):
         # given
-        inp = ['1 1',
-               '0 1']
+        inp = (1, 
+                ['0 1']
+                   )
         excepted_res = [0]
 
         # when
-        res = solution(inp)
+        res = solution(*inp)
 
         # then
         self.assertEqual(res, excepted_res)
 
     def test_should_check_big_gaps(self):
         # given
-        inp = ['2 3',
-               '0 1',
-               '3 1',
-               '10 1']
+        inp = (1, 
+               ['0 1',
+                '3 1',
+                '10 1']
+                   )
         excepted_res = [0, 3, 10]
 
         # when
-        res = solution(inp)
+        res = solution(*inp)
 
         # then
         self.assertEqual(res, excepted_res)
 
     def test_should_check_simultaneous_input_even_if_instant_process(self):
         # given
-        inp = ['1 2',
-               '0 1',
-               '0 0']
+        inp = (1, 
+               ['0 1',
+                '0 0']
+                   )
         excepted_res = [0, -1]
 
         # when
-        res = solution(inp)
+        res = solution(*inp)
 
         # then
         self.assertEqual(res, excepted_res)
 
     def test_should_check_filling_the_buffer(self):
         # given
-        inp = ['3 6',
-               '0 1',
+        inp = (3, 
+               ['0 1',
                '1 2',
                '2 2',
                '3 2',
                '4 2',
-               '5 2']
+               '5 2'])
         excepted_res = [0, 2, 4, 6, 8, -1]
 
         # when
-        res = solution(inp)
+        res = solution(*inp)
 
         # then
         self.assertEqual(res, excepted_res)
