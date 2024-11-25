@@ -8,14 +8,13 @@ from Lab5.utils import read_commands_s_n, write_lst_by_lines_file
 
 
 class Node:
-    def __init__(self, i, process_time, next=None, prev=None):
-        self.idx = i
-        self.proc_t = process_time
+    def __init__(self, time, next=None, prev=None):
+        self.time = time
         self.next = next
         self.prev = prev
     
     def copy(self):
-        return Node(self.idx, self.proc_t, self.next, self.prev)
+        return Node(self.time, self.next, self.prev)
 
 
 class Queue:
@@ -60,7 +59,7 @@ class Queue:
         cur = self.head
         res = []
         while cur != None:
-            res.append((cur.arr_t, cur.proc_t))
+            res.append((cur.time))
             cur = cur.prev
         print(res)
 
@@ -69,62 +68,40 @@ class Buffer(Queue):
     def __init__(self):
         super().__init__()
         self.len = 0
-        self.end_time = 0
-        self.head_arrived_time = 0
 
-    def put(self, node: Node, arrive_time):
-        if self.head is None:
-            self.head_arrived_time = arrive_time
+    def put(self, node: Node):
         super().put(node)
         self.len += 1
-        self.end_time += node.proc_t
 
     def pop(self):
         ret = super().pop()
         if ret is not None:
             self.len -= 1
         return ret
-    
-    def execute(self, fill_ans, time=None):
-        cur_package = self.head
-        if cur_package is None:
-            return
-        
-        if time is None:
-            time = self.end_time # till the end
-
-        while self.head_arrived_time + cur_package.proc_t <= time: # is process executed before the new arrived
-            fill_ans[cur_package.idx] = self.head_arrived_time
-
-            self.head_arrived_time += cur_package.proc_t
-
-            cur_package = cur_package.next
-            if cur_package is None:
-                break
 
 
-
-def solution(s, packages):
-    n = len(packages)
+def solution(buffer_size, packages):
     buffer = Buffer()
-    ans = [0] * n
-    for i, command in enumerate(packages):
-        arrive_time, process_time = map(int, command.split())
-        process = Node(i, process_time)
-        if buffer.head is None:
-            buffer.put(process, arrive_time)
-            continue
-        if arrive_time >= buffer.end_time:
-            buffer.execute(ans) # fill output with the whole buffer
-            buffer.end_time = arrive_time
-            buffer.put(process, arrive_time)
+    ans = []
+
+    for package in packages:
+        arrive_time, process_time = map(int, package.split())
+        while buffer.peek() is not None and buffer.head.time <= arrive_time:
+            buffer.pop()
+
+        if buffer.len >= buffer_size:
+            ans.append(-1)
         else:
-            buffer.execute(ans, arrive_time)
-            if buffer.len != s:
-                buffer.put(process, arrive_time)
+            tail = buffer.peek_tail()
+            if tail is None:
+                start_time = arrive_time
             else:
-                ans[i] = -1
-    buffer.execute(ans)
+                start_time = tail.time
+
+            ans.append(start_time)
+
+            buffer.put(Node(start_time + process_time))
+
     return ans
 
 def main():
