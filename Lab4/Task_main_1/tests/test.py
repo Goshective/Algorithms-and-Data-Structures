@@ -18,13 +18,13 @@ class TestsStack(unittest.TestCase):
                '+ 2',
                '+ 1234',
                '-']
-        excepted_res = [10, 1234]
+        expected_res = [10, 1234]
 
         # when
         res = solution(inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def test_should_reverse_order(self):
         # given
@@ -34,13 +34,13 @@ class TestsStack(unittest.TestCase):
                '-',
                '-',
                '-']
-        excepted_res = [20, 10, 1]
+        expected_res = [20, 10, 1]
 
         # when
         res = solution(inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def check_time_memory_limit(self, res_time, res_memory):
         # given

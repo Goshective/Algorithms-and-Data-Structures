@@ -20,13 +20,13 @@ class TestsQueueMid(unittest.TestCase):
                '+ 4',
                '-',
                '-']
-        excepted_res = [1, 2, 3]
+        expected_res = [1, 2, 3]
 
         # when
         res = solution(inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def test_should_work_as_queue_mid(self):
         # given
@@ -41,13 +41,13 @@ class TestsQueueMid(unittest.TestCase):
                '-',
                '-',
                '-']
-        excepted_res = [1, 3, 2, 5, 4]
+        expected_res = [1, 3, 2, 5, 4]
 
         # when
         res = solution(inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def test_should_check_full_empty(self):
         # given
@@ -64,13 +64,13 @@ class TestsQueueMid(unittest.TestCase):
                '-',
                '+ 4',
                '-']
-        excepted_res = [1, 2, 4, 3, 4, 4]
+        expected_res = [1, 2, 4, 3, 4, 4]
 
         # when
         res = solution(inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def check_time_memory_limit(self, res_time, res_memory):
         # given

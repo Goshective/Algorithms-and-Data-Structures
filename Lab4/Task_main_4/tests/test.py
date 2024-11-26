@@ -13,79 +13,79 @@ class TestsBrackets(unittest.TestCase):
     def test_should_find_wrong_index_for_len_1(self):
         # given
         inp = '{'
-        excepted_res = 1
+        expected_res = 1
 
         # when
         res = solution(inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def test_should_find_wrong_index_for_multiple_brackets(self):
         # given
         inp = '{[}'
-        excepted_res = 3
+        expected_res = 3
 
         # when
         res = solution(inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def test_should_find_wrong_index_for_multiple_brackets_with_letters(self):
         # given
         inp = 'foo(bar[i);'
-        excepted_res = 10
+        expected_res = 10
 
         # when
         res = solution(inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def test_should_return_success(self):
         # given
         inp = '[]'
-        excepted_res = 'Success'
+        expected_res = 'Success'
 
         # when
         res = solution(inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def test_should_return_success_multiple_brackets(self):
         # given
         inp = '{}[]'
-        excepted_res = 'Success'
+        expected_res = 'Success'
 
         # when
         res = solution(inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def test_should_return_success_recursion(self):
         # given
         inp = '[()]'
-        excepted_res = 'Success'
+        expected_res = 'Success'
 
         # when
         res = solution(inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def test_should_return_success_with_letters(self):
         # given
         inp = 'foo(bar);'
-        excepted_res = 'Success'
+        expected_res = 'Success'
 
         # when
         res = solution(inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def check_time_memory_limit(self, res_time, res_memory):
         # given

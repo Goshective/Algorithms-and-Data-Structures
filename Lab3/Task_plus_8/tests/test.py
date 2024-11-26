@@ -14,24 +14,24 @@ class TestCasePoints(unittest.TestCase):
     def test_should_find_2_nearest_points(self):
         # given
         inp = [[3, 3], [-2, 4], [5, -1]]
-        excepted_res = [[3, 3], [-2, 4]]
+        expected_res = [[3, 3], [-2, 4]]
 
         # when
         res = solution(len(inp), 2, inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
         
     def test_should_return_nothing(self):
         # given
         inp = [[3, 3], [-2, 4], [5, -1]]
-        excepted_res = []
+        expected_res = []
 
         # when
         res = solution(len(inp), 0, inp)
         
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
     
     def check_time_memory_limit(self, res_time, res_memory):
         # given

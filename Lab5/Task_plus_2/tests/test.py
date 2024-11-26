@@ -13,35 +13,35 @@ class TestsTreeHeight(unittest.TestCase):
     def test_should_find_simple_height(self):
         # given
         inp = [4, -1, 4, 1, 1]
-        excepted_res = 3
+        expected_res = 3
 
         # when
         res = solution(inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def test_should_find_height_of_straight_tree(self):
         # given
         inp = [-1, 0, 4, 0, 3]
-        excepted_res = 4
+        expected_res = 4
 
         # when
         res = solution(inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def test_should_find_height_of_one_node(self):
         # given
         inp = [-1]
-        excepted_res = 1
+        expected_res = 1
 
         # when
         res = solution(inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def check_time_memory_limit(self, res_time, res_memory):
         # given

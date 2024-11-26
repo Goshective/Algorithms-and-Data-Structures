@@ -13,24 +13,24 @@ class TestsPackages(unittest.TestCase):
     def test_should_check_empty(self):
         # given
         inp = 1, []
-        excepted_res = []
+        expected_res = []
 
         # when
         res = solution(*inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def test_should_execute_1(self):
         # given
         inp = 1, ['0 0']
-        excepted_res = [0]
+        expected_res = [0]
 
         # when
         res = solution(*inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def test_should_check_buffer(self):
         # given
@@ -38,13 +38,13 @@ class TestsPackages(unittest.TestCase):
                ['0 1',
                 '0 1']
                    )
-        excepted_res = [0, -1]
+        expected_res = [0, -1]
 
         # when
         res = solution(*inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def test_should_execute_and_receive(self):
         # given
@@ -52,26 +52,26 @@ class TestsPackages(unittest.TestCase):
                ['0 1',
                 '1 1']
                    )
-        excepted_res = [0, 1]
+        expected_res = [0, 1]
 
         # when
         res = solution(*inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def test_should_return_start_time(self):
         # given
         inp = (1, 
                 ['0 1']
                    )
-        excepted_res = [0]
+        expected_res = [0]
 
         # when
         res = solution(*inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def test_should_check_big_gaps(self):
         # given
@@ -80,13 +80,13 @@ class TestsPackages(unittest.TestCase):
                 '3 1',
                 '10 1']
                    )
-        excepted_res = [0, 3, 10]
+        expected_res = [0, 3, 10]
 
         # when
         res = solution(*inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def test_should_check_simultaneous_input_even_if_instant_process(self):
         # given
@@ -94,13 +94,13 @@ class TestsPackages(unittest.TestCase):
                ['0 1',
                 '0 0']
                    )
-        excepted_res = [0, -1]
+        expected_res = [0, -1]
 
         # when
         res = solution(*inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def test_should_check_filling_the_buffer(self):
         # given
@@ -111,13 +111,13 @@ class TestsPackages(unittest.TestCase):
                '3 2',
                '4 2',
                '5 2'])
-        excepted_res = [0, 2, 4, 6, 8, -1]
+        expected_res = [0, 2, 4, 6, 8, -1]
 
         # when
         res = solution(*inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def check_time_memory_limit(self, res_time, res_memory):
         # given

@@ -23,13 +23,13 @@ class TestsMaxStack(unittest.TestCase):
         'max',
         'pop',
         'max']
-        excepted_res = [9, 9, 9, 9]
+        expected_res = [9, 9, 9, 9]
 
         # when
         res = solution(inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def test_should_find_max_after_pop(self):
         # given
@@ -39,13 +39,13 @@ class TestsMaxStack(unittest.TestCase):
                'max',
                'pop',
                'max']
-        excepted_res = [7, 5]
+        expected_res = [7, 5]
 
         # when
         res = solution(inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def test_should_find_constant_max_after_pop(self):
         # given
@@ -54,13 +54,13 @@ class TestsMaxStack(unittest.TestCase):
                'max',
                'pop',
                'max']
-        excepted_res = [2, 2]
+        expected_res = [2, 2]
 
         # when
         res = solution(inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def check_time_memory_limit(self, res_time, res_memory):
         # given

@@ -13,24 +13,24 @@ class TestsQueueMax(unittest.TestCase):
     def test_should_find_basic_max(self):
         # given
         inp = 8, [2, 7, 3, 1, 5, 2, 6, 2], 4
-        excepted_res = [7, 7, 5, 6, 6]
+        expected_res = [7, 7, 5, 6, 6]
 
         # when
         res = solution(*inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def test_should_find_with_size_1_window(self):
         # given
         inp = 8, [2, 7, 3, 1, 5, 2, 6, 2], 1
-        excepted_res = [2, 7, 3, 1, 5, 2, 6, 2]
+        expected_res = [2, 7, 3, 1, 5, 2, 6, 2]
 
         # when
         res = solution(*inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def check_time_memory_limit(self, res_time, res_memory):
         # given

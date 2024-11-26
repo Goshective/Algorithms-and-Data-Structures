@@ -16,13 +16,13 @@ class TestsLinkedDict(unittest.TestCase):
             'left 2 1',
             'right 3 1',
             'name 1']
-        excepted_res = [[2, 3]]
+        expected_res = [[2, 3]]
 
         # when
         res = solution(*inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def test_should_work_as_queue_mid(self):
         # given
@@ -31,13 +31,13 @@ class TestsLinkedDict(unittest.TestCase):
             'leave 1',
             'right 3 1',
             'name 1']
-        excepted_res = [[0, 3]]
+        expected_res = [[0, 3]]
 
         # when
         res = solution(*inp)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
 
     def check_time_memory_limit(self, res_time, res_memory):
         # given
