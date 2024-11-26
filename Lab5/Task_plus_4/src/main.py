@@ -8,36 +8,61 @@ from Lab5.utils import read_n_lst, write_mat_by_lines_file
 
 
 class Node:
-    pass
+    def __init__(self, left=None, right=None, parent=None):
+        self.left = left
+        self.right = right
+        self.parent = parent
 
 
-class Heap:
-    pass
+def left(i): # 0 -> 1
+    return 2 * (i+1) - 1
+
+def right(i): # 0 -> 2
+    return 2 * (i+1)
+
+def MinHeapify(lst, i):
+    swaps = []
+    while True:
+        _l = left(i)
+        r = right(i)
+        if _l > r:
+            break
+        if _l < len(lst) and lst[_l] < lst[i]:
+            largest = _l
+        else:
+            largest = i
+
+        if r < len(lst) and lst[r] < lst[largest]:
+            largest = r
+
+        if largest != i:
+            lst[i], lst[largest] = lst[largest], lst[i]
+            swaps.append((i, largest))
+            i = largest
+        else:
+            break
+
+    return swaps
 
 
-def min_heap():
-    pass
+def BuildMinHeap(lst):
+    heap_size = len(lst)
+    swaps = []
+    for i in range(heap_size//2, -1, -1):
+        swaps += MinHeapify(lst, i)
+
+    return swaps
 
 
 def solution(lst):
-    queue = 2
-    ans = []
-    for command in lst:
-        cmd = command.split()
-        if cmd[0] == '+':
-            queue.put(Node(int(cmd[1])))
-        elif cmd[0] == '*':
-            queue.put_to_mid(Node(int(cmd[1])))
-        else:
-            ret = queue.get()
-            ans.append(ret.val)
-        # queue.print()
-    return ans
+    return BuildMinHeap(lst)
+
 
 def main():
     _, lst = read_n_lst(os.path.join(PATH, 'txtf', 'input.txt'))
     res = solution(lst)
-    write_mat_by_lines_file(os.path.join(PATH, 'txtf', 'output.txt'), res)
+    out = [[len(res)]] + res
+    write_mat_by_lines_file(os.path.join(PATH, 'txtf', 'output.txt'), out)
 
 
 if __name__ == "__main__":
