@@ -1,81 +1,48 @@
 import unittest
 import sys
 import os
+from random import shuffle
 
 PATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
 
-from Lab4.Task_main_9.src.main import solution
+from Lab5.Task_plus_4.src.main import solution
 from test_utils import (ConsoleTimeMemory as TM, MB)
 
 
-class TestsQueueMid(unittest.TestCase):
+class TestsMinHeap(unittest.TestCase):
     def test_should_work_as_basic_queue(self):
         # given
-        inp = [
-               '+ 1',
-               '+ 2',
-               '-',
-               '+ 3',
-               '+ 4',
-               '-',
-               '-']
-        excepted_res = [1, 2, 3]
+        inp = [5, 4, 3, 2, 1]
+        expected_res = [(1, 4), (0, 1), (1, 3)]
+        expected_size = 4*len(inp)
 
         # when
         res = solution(inp)
+        res_size = len(res)
 
         # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
+        self.assertLessEqual(res_size, expected_size)
 
-    def test_should_work_as_queue_mid(self):
+    def test_should_work_as_basic_queue(self):
         # given
-        inp = [
-               '+ 1',
-               '+ 2',
-               '* 3 ',
-               '-',
-               '+ 4',
-               '* 5',
-               '-',
-               '-',
-               '-',
-               '-']
-        excepted_res = [1, 3, 2, 5, 4]
+        inp = [1, 2, 3, 4, 5]
+        expected_res = []
+        expected_size = 4*len(inp)
 
         # when
         res = solution(inp)
+        res_size = len(res)
 
         # then
-        self.assertEqual(res, excepted_res)
-
-    def test_should_check_full_empty(self):
-        # given
-        inp = [
-               '+ 1',
-               '* 2',
-               '+ 3',
-               '-',
-               '* 4',
-               '-',
-               '-',
-               '-',
-               '* 4',
-               '-',
-               '+ 4',
-               '-']
-        excepted_res = [1, 2, 4, 3, 4, 4]
-
-        # when
-        res = solution(inp)
-
-        # then
-        self.assertEqual(res, excepted_res)
+        self.assertEqual(res, expected_res)
+        self.assertLessEqual(res_size, expected_size)
 
     def check_time_memory_limit(self, res_time, res_memory):
         # given
-        expected_memory = 256 * MB
-        expected_time = 2
+        expected_memory = 512 * MB
+        expected_time = 3
         # when
         # then
         
@@ -84,9 +51,11 @@ class TestsQueueMid(unittest.TestCase):
     
     def test_should_fit_time_memory_limit(self):
         # given
-        test_data = [('100 элементов', ['* 1'] * 50 + ['-'] * 50),
-                     ('1000 элементов', ['* 1'] * 500 + ['-'] * 500),
-                     ('10e5 элементов', ['* 1'] * 5*10**4 + ['-'] * 5*10**4)]
+        test_data = []
+        for title, amount in (('100 элементов', 100), ('1000 элементов', 1000), ('10e5 элементов', 10**5)):
+            lst = list(range(amount))
+            shuffle(lst)
+            test_data.append((title, lst))
 
         for test_name, input_by_size in test_data:
             # when
