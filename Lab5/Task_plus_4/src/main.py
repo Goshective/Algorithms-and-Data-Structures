@@ -7,13 +7,6 @@ sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
 from Lab5.utils import read_n_lst, write_mat_by_lines_file
 
 
-class Node:
-    def __init__(self, left=None, right=None, parent=None):
-        self.left = left
-        self.right = right
-        self.parent = parent
-
-
 def left(i): # 0 -> 1
     return 2 * (i+1) - 1
 
@@ -28,17 +21,17 @@ def MinHeapify(lst, i):
         if _l > r:
             break
         if _l < len(lst) and lst[_l] < lst[i]:
-            largest = _l
+            smallest = _l
         else:
-            largest = i
+            smallest = i
 
-        if r < len(lst) and lst[r] < lst[largest]:
-            largest = r
+        if r < len(lst) and lst[r] < lst[smallest]:
+            smallest = r
 
-        if largest != i:
-            lst[i], lst[largest] = lst[largest], lst[i]
-            swaps.append((i, largest))
-            i = largest
+        if smallest != i:
+            lst[i], lst[smallest] = lst[smallest], lst[i]
+            swaps.append((i, smallest))
+            i = smallest
         else:
             break
 
