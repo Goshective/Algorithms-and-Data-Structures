@@ -25,7 +25,7 @@ class TestsMinHeap(unittest.TestCase):
         self.assertEqual(res, expected_res)
         self.assertLessEqual(res_size, expected_size)
 
-    def test_should_work_as_basic_queue(self):
+    def test_should_return_nothing(self):
         # given
         inp = [1, 2, 3, 4, 5]
         expected_res = []
