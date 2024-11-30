@@ -1,7 +1,6 @@
 import unittest
 import sys
 import os
-from random import shuffle
 
 PATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
