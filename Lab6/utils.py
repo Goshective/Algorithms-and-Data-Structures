@@ -48,5 +48,3 @@ def write_mat_by_lines_file(path, mat, sep=' '):
     with open(path, 'w') as out:
         for lst in mat:
             print(*lst, file=out, sep=sep)
-
-print((40*15)%29)
