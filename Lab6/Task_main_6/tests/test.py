@@ -50,7 +50,7 @@ class TestHeapSort(unittest.TestCase):
         # given
         test_data = [('100 элементов', [f'{1000*i}' for i in range(1, 100)]),
                      ('10e6 элементов', [f'{1000*i}' for i in range(1, 10**6)]),
-                     ('5000 разрядов', [f'{i%100}'*50 for i in range(10, 100)])]
+                     ('5000 разрядов', [f'{i%100}'*2500 for i in range(10, 100)])]
 
         for test_name, input_by_size in test_data:
             # when

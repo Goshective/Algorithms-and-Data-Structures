@@ -3,6 +3,7 @@ import sys
 
 PATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
+sys.set_int_max_str_digits(5000)
 
 from Lab6.utils import read_commands, write_lst_by_lines_file
 
