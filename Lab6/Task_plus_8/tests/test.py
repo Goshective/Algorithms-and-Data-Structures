@@ -9,8 +9,8 @@ from Lab6.Task_plus_8.src.main import solution
 from test_utils import (ConsoleTimeMemory as TM, MB)
 
 
-class TestsTreeHeight(unittest.TestCase):
-    def test_should_find_simple_height(self):
+class TestsHashSet(unittest.TestCase):
+    def test_should_iterate_through_small_values(self):
         # given
         inp = [4, 0, 0, 0, 
                1, 1, 0, 0]
