@@ -34,9 +34,9 @@ def write_lst_file(path, lst, sep=" "):
         print(*lst, file=out, sep=sep, end='')
 
 
-def write_n_lst_file(path, lst, sep=" "):
+def write_n_lst_file(path, n, lst, sep=" "):
     with open(path, 'w') as out:
-        print(len(lst), file=out)
+        print(n, file=out)
         print(*lst, file=out, sep=sep, end='')
 
 
