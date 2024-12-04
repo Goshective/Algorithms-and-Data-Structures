@@ -11,6 +11,15 @@ def write_file(path, ans):
         print(ans, file=out, end='')
 
 
+def read_2_n_lst_file(path):
+    with open(path, 'r') as inp:
+        _ = int(inp.readline())
+        lst1 = [int(x) for x in inp.readline().split()]
+        _ = int(inp.readline())
+        lst2 = [int(x) for x in inp.readline().split()]
+    return lst1, lst2
+
+
 def read_commands(path):
     with open(path, 'r') as inp:
         n = int(inp.readline())
@@ -22,6 +31,12 @@ def read_commands(path):
 
 def write_lst_file(path, lst, sep=" "):
     with open(path, 'w') as out:
+        print(*lst, file=out, sep=sep, end='')
+
+
+def write_n_lst_file(path, lst, sep=" "):
+    with open(path, 'w') as out:
+        print(len(lst), file=out)
         print(*lst, file=out, sep=sep, end='')
 
 

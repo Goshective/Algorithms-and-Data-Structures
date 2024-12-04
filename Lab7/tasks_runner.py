@@ -7,4 +7,4 @@ sys.path.insert(0, os.path.join(PATH, '..'))
 from all_tasks_runner import run_tasks
 
 
-run_tasks(['Lab6'])
+run_tasks(['Lab7'])
