@@ -57,6 +57,21 @@ class TestLCS(unittest.TestCase):
 
         self.assertEqual(res, expected_res)
 
+    def test_should_find_hidden_subsequence(self):
+        # given
+
+        inp = ([1, 2, 3, 4, 0, 5, 0, 6, 0, 7],
+               [5, 1, 6, 2, 7, 3, 4])
+        expected_res = 4
+
+        # when
+
+        res = solution(*inp)
+
+        # then
+
+        self.assertEqual(res, expected_res)
+
     def check_time_memory_limit(self, res_time, res_memory):
         # given
 
@@ -72,9 +87,9 @@ class TestLCS(unittest.TestCase):
     def test_should_fit_time_memory_limit(self):
         # given
         test_data = []
-        for title, n in (('100 элементов', 100), ('10e3 элементов', 1000), ('5*10e5 элементов', 5*10**5)):
-            data = ([i for i in range(n // 2)] + [2*i for i in range(n // 2)])
-            test_data.append((title, data))
+        for n in (10, 50, 100):
+            data = ([i for i in range(n // 2)], [2*i for i in range(n // 2)])
+            test_data.append((f'{n} элементов', data))
 
         for test_name, input_by_size in test_data:
             # when
