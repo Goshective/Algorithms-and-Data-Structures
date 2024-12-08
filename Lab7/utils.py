@@ -27,15 +27,6 @@ def read_2_n_lst_file(path):
     return lst1, lst2
 
 
-def read_commands(path):
-    with open(path, 'r') as inp:
-        n = int(inp.readline())
-        ret = []
-        for _ in range(n):
-            ret.append(inp.readline().rstrip())
-    return ret
-
-
 def write_lst_file(path, lst, sep=" "):
     with open(path, 'w') as out:
         print(*lst, file=out, sep=sep, end='')
