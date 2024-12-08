@@ -11,6 +11,13 @@ def write_file(path, ans):
         print(ans, file=out, end='')
 
 
+def read_n_lst_file(path):
+    with open(path, 'r') as inp:
+        _ = int(inp.readline())
+        lst = [int(x) for x in inp.readline().split()]
+    return lst
+
+
 def read_2_n_lst_file(path):
     with open(path, 'r') as inp:
         _ = int(inp.readline())
