@@ -11,7 +11,7 @@ from Lab7.Task_main_6.src.main import solution
 from test_utils import (ConsoleTimeMemory as TM, MB)
 
 
-class TestHeapSort(unittest.TestCase):
+class TestLIS(unittest.TestCase):
     def test_should_find_basic_LIS(self):
         # given
 
