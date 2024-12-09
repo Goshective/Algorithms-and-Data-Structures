@@ -10,7 +10,11 @@ from Lab3.Task_plus_6.src.main import (
     qsort,
     radix_sort,
     )
-from test_utils import (ConsoleTimeMemory as TM, MB)
+from test_utils import (
+    ConsoleTimeMemory as TM, 
+    get_task_name,
+    MB
+)
 
 
 class TestCaseMultiArray(unittest.TestCase):
@@ -35,22 +39,29 @@ class TestCaseMultiArray(unittest.TestCase):
         self.assertLessEqual(res_memory, expected_memory)
     
     def test_should_fit_time_memory_limit(self):
-            for func_name, func in ('\nQuick sort (Python):', qsort), ('\nRadix sort:', radix_sort):
-                # given
-                test_data = [(f'{i}^2 элементов', (i, i, list(range(i, 0, -1)), list(range(i, 0, -1)), func)) 
-                             for i in (4, 500, 1000)]
+        print()
+        print('-'*55)
+        print(get_task_name(PATH))
 
-                for test_id, (test_name, input_by_size) in enumerate(test_data):
-                    # when
-                    res_time = TM.count_time(solution, *input_by_size)
-                    res_memory = TM.count_memory(solution, *input_by_size)
+        for func_name, func in ('Quick sort (Python):', qsort), ('Radix sort:', radix_sort):
+            # given
+            test_data = [(f'{i}^2 элементов', (i, i, list(range(i, 0, -1)), list(range(i, 0, -1)), func)) 
+                            for i in (4, 500, 1000)]
 
-                    if test_id == 0:
-                        print('\n', func_name)
-                    TM.output_design(test_name, res_time, res_memory)
+            for test_id, (test_name, input_by_size) in enumerate(test_data):
+                # when
+                res_time = TM.count_time(solution, *input_by_size)
+                res_memory = TM.count_memory(solution, *input_by_size)
 
-                    # then
-                    self.check_time_memory_limit(res_time, res_memory)
+                if test_id == 0:
+                    print()
+                    print(func_name)
+                TM.output_design(test_name, res_time, res_memory)
+
+                # then
+                self.check_time_memory_limit(res_time, res_memory)
+
+        print('-'*55)
 
 
 if __name__ == "__main__":

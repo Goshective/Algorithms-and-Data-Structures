@@ -8,11 +8,15 @@ sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
 
 from Lab6.Task_main_6.src.main import solution
 
-from test_utils import (ConsoleTimeMemory as TM, MB)
+from test_utils import (
+    ConsoleTimeMemory as TM, 
+    get_task_name,
+    MB
+)
 
 
-class TestHeapSort(unittest.TestCase):
-    def test_should_sort_example(self):
+class TestFib(unittest.TestCase):
+    def test_should_accumulate_answers(self):
         # given
 
         inp = [
@@ -52,6 +56,11 @@ class TestHeapSort(unittest.TestCase):
                      ('10e6 элементов', [f'{1000*i}' for i in range(1, 10**6)]),
                      ('5000 разрядов', [f'{i%100}'*2500 for i in range(10, 100)])]
 
+        
+        print()
+        print('-'*55)
+        print(get_task_name(PATH))
+
         for test_name, input_by_size in test_data:
             # when
             res_time = TM.count_time(solution, input_by_size)
@@ -61,6 +70,8 @@ class TestHeapSort(unittest.TestCase):
 
             # then
             self.check_time_memory_limit(res_time, res_memory)
+
+        print('-'*55)
 
 
 if __name__ == "__main__":

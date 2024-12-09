@@ -6,7 +6,11 @@ PATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
 
 from Lab2.Task_plus_8.src.main import sum_polynoms, multiply_polynoms
-from test_utils import (ConsoleTimeMemory as TM, MB)
+from test_utils import (
+    ConsoleTimeMemory as TM, 
+    get_task_name,
+    MB
+)
 
 
 class TestCaseMultiplyPolynomials(unittest.TestCase):
@@ -69,6 +73,11 @@ class TestCaseMultiplyPolynomials(unittest.TestCase):
         test_data = [(f'{i} элементов', (i, [1]*i, [1, -1]* (i//2))) for i in 
                      (10, 250, 500)]
 
+        
+        print()
+        print('-'*55)
+        print(get_task_name(PATH))
+
         for test_name, input_by_size in test_data:
             # when
             res_time = TM.count_time(multiply_polynoms, *input_by_size)
@@ -78,6 +87,8 @@ class TestCaseMultiplyPolynomials(unittest.TestCase):
 
             # then
             self.check_time_memory_limit(res_time, res_memory)
+
+        print('-'*55)
 
 
 if __name__ == "__main__":

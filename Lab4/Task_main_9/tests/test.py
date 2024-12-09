@@ -6,7 +6,11 @@ PATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
 
 from Lab4.Task_main_9.src.main import solution
-from test_utils import (ConsoleTimeMemory as TM, MB)
+from test_utils import (
+    ConsoleTimeMemory as TM, 
+    get_task_name,
+    MB
+)
 
 
 class TestsQueueMid(unittest.TestCase):
@@ -88,6 +92,11 @@ class TestsQueueMid(unittest.TestCase):
                      ('1000 элементов', ['* 1'] * 500 + ['-'] * 500),
                      ('10e5 элементов', ['* 1'] * 5*10**4 + ['-'] * 5*10**4)]
 
+        
+        print()
+        print('-'*55)
+        print(get_task_name(PATH))
+
         for test_name, input_by_size in test_data:
             # when
             res_time = TM.count_time(solution, input_by_size)
@@ -97,6 +106,8 @@ class TestsQueueMid(unittest.TestCase):
 
             # then
             self.check_time_memory_limit(res_time, res_memory)
+
+        print('-'*55)
 
 
 if __name__ == "__main__":

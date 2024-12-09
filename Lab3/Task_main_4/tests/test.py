@@ -6,7 +6,11 @@ PATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
 
 from Lab3.Task_main_4.src.main import solution
-from test_utils import (ConsoleTimeMemory as TM, MB)
+from test_utils import (
+    ConsoleTimeMemory as TM, 
+    get_task_name,
+    MB
+)
 
 
 class TestCaseSegments(unittest.TestCase):
@@ -54,6 +58,11 @@ class TestCaseSegments(unittest.TestCase):
         maximum_inp = [[2*i, 2*i+1] for i in range(50000)]
         test_data.append(('5*10e4 элементов', (50000, 50000, maximum_inp, list(range(50000)))))
 
+        
+        print()
+        print('-'*55)
+        print(get_task_name(PATH))
+
         for test_name, input_by_size in test_data:
             # when
             res_time = TM.count_time(solution, *input_by_size)
@@ -63,6 +72,8 @@ class TestCaseSegments(unittest.TestCase):
 
             # then
             self.check_time_memory_limit(res_time, res_memory)
+
+        print('-'*55)
 
 
 if __name__ == "__main__":

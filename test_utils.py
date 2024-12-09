@@ -1,3 +1,4 @@
+import os
 import time
 import tracemalloc
 
@@ -14,8 +15,9 @@ class ConsoleTimeMemory:
             else:
                 out_mem = f'{round(res_memory / (1024**2), 1)} Мегабайт'
 
+            print()
             print(f"Тест {test_name}:")
-            print("Время работы: %s секунд " % (res_time), end='\n')
+            print("Время работы: %s секунд " % (round(res_time, 6)), end='\n')
             print("Затрачено памяти:", out_mem)
     
     def count_time(func, *args):
@@ -30,3 +32,11 @@ class ConsoleTimeMemory:
         memory = tracemalloc.get_traced_memory()[1]
         tracemalloc.stop()
         return memory
+
+
+def get_task_name(path):
+    lab_directory = os.path.basename(os.path.dirname(os.path.dirname(path)))
+    task_directory = os.path.basename(os.path.dirname(path))
+    task_num = int(task_directory.split('_')[-1])
+
+    return f'{lab_directory}. Task {task_num}'

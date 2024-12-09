@@ -6,7 +6,11 @@ PATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
 
 from Lab4.Task_main_4.src.main import solution
-from test_utils import (ConsoleTimeMemory as TM, MB)
+from test_utils import (
+    ConsoleTimeMemory as TM, 
+    get_task_name,
+    MB
+)
 
 
 class TestsBrackets(unittest.TestCase):
@@ -103,6 +107,11 @@ class TestsBrackets(unittest.TestCase):
                      ('10e4 элементов', '('*5*10**3 + ')'*5*10**3),
                      ('10e6 элементов', '('*5*10**5 + ')'*5*10**5)]
 
+        
+        print()
+        print('-'*55)
+        print(get_task_name(PATH))
+
         for test_name, input_by_size in test_data:
             # when
             res_time = TM.count_time(solution, input_by_size)
@@ -112,6 +121,8 @@ class TestsBrackets(unittest.TestCase):
 
             # then
             self.check_time_memory_limit(res_time, res_memory)
+
+        print('-'*55)
 
 
 if __name__ == "__main__":

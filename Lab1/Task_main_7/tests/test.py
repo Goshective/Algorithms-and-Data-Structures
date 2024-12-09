@@ -6,7 +6,11 @@ PATH = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
 
 from Lab1.Task_main_7.src.main import find_info
-from test_utils import (ConsoleTimeMemory as TM, MB)
+from test_utils import (
+    ConsoleTimeMemory as TM, 
+    get_task_name,
+    MB
+)
 
 
 class TestCaseIndicesInsertionSort(unittest.TestCase):
@@ -42,6 +46,11 @@ class TestCaseIndicesInsertionSort(unittest.TestCase):
         test_data = [(f'{i} элементов', (i, list(range(i, -1, -1)))) for i in 
                      (10, 100, 1000)]
 
+        
+        print()
+        print('-'*55)
+        print(get_task_name(PATH))
+
         for test_name, input_by_size in test_data:
             # when
             res_time = TM.count_time(find_info, *input_by_size)
@@ -51,6 +60,8 @@ class TestCaseIndicesInsertionSort(unittest.TestCase):
 
             # then
             self.check_time_memory_limit(res_time, res_memory)
+
+        print('-'*55)
 
 
 if __name__ == "__main__":
