@@ -2,8 +2,8 @@ import os
 import sys
 
 
-PATH = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
+PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(PATH, '..', '..'))
 
 from Lab7.utils import read_2_n_lst_file, write_file
     

@@ -2,8 +2,8 @@ import os
 import sys
 from bisect import bisect_left
 
-PATH = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
+PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(PATH, '..', '..'))
 
 from Lab7.utils import read_n_lst_file, write_n_lst_file
 

@@ -10,12 +10,12 @@ LABS_NAMES = [f'Lab{i}' for i in range(1, 9)]
 
 
 def parse_info_from_folder(file):
-    file_by_parts = os.path.split(file)
     task_directory = os.path.basename(os.path.dirname(os.path.dirname(file)))
+    txtf_directory = os.path.dirname(os.path.dirname(file))
     task_num = int(task_directory.split('_')[-1])
 
-    inp_path = os.path.join(file_by_parts[0], 'txtf', 'input.txt')
-    out_path = os.path.join(file_by_parts[0], 'txtf', 'output.txt')
+    inp_path = os.path.join(txtf_directory, 'txtf', 'input.txt')
+    out_path = os.path.join(txtf_directory, 'txtf', 'output.txt')
 
     table_pairs = []
     with open(inp_path, 'r') as inp, open(out_path, 'r') as out:

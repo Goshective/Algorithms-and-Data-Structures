@@ -1,8 +1,8 @@
 import os
 import sys
 
-PATH = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
+PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(PATH, '..', '..'))
 
 from Lab5.utils import read_n_lst, write_file
 

@@ -2,9 +2,8 @@ from random import randint
 import os
 import sys
 
-PATH = os.path.dirname(os.path.abspath(__file__))
-# LEFT_IDX = 0
-sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
+PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(PATH, '..', '..'))
 
 from Lab3.utils import read_len_lst_file, write_lst_file
 

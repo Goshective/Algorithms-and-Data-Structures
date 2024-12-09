@@ -1,10 +1,11 @@
 import os
 import sys
 
-PATH = os.path.dirname(os.path.abspath(__file__))
+
+PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(PATH, '..', '..'))
 LEFT = 0
 RIGHT = 1
-sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
 
 from Lab4.utils import read_commands_n_m, write_mat_by_lines_file
 

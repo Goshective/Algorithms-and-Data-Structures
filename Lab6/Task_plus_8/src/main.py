@@ -4,8 +4,8 @@ from array import array
 
 
 EMPTY = 10**15+1
-PATH = os.path.dirname(os.path.abspath(__file__))
-sys.path.insert(0, os.path.join(PATH, '..', '..', '..'))
+PATH = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, os.path.join(PATH, '..', '..'))
 
 from Lab6.utils import read_file, write_lst_file
 
